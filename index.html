@@ -1,0 +1,2505 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<title>製造業DX展 名古屋 — dbSheet 展示会作戦企画書</title>
+
+<!-- Open Graph / Twitter (moved early for link scrapers like Teams) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://shiozaki-new.github.io/nagoya2026kikaku/">
+<meta property="og:site_name" content="dbSheet | 株式会社NEWCOM">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="製造業DX展 名古屋 — dbSheet 展示会作戦企画書">
+<meta property="og:description" content="dbSheetの思想と展示会作戦をまとめた企画書。">
+<meta property="og:image" content="https://shiozaki-new.github.io/nagoya2026kikaku/ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="製造業DX展 名古屋 — dbSheet 展示会作戦企画書">
+<meta name="twitter:description" content="dbSheetの思想と展示会作戦をまとめた企画書。">
+
+<style>
+/* =====================================================
+   CSS VARIABLES
+   ===================================================== */
+:root {
+  --color-primary: #1B3A5C;
+  --color-primary-dark: #0F2640;
+  --color-primary-mid: #162A40;
+  --color-accent: #E8913A;
+  --color-accent-light: rgba(232,145,58,0.12);
+  --color-success: #30A46C;
+  --color-warning: #E5484D;
+  --color-info: #3B82F6;
+
+  --color-bg-dark: #0F2640;
+  --color-bg-dark2: #0A1E33;
+  --color-bg-light: #EEF2F7;
+  --color-bg-white: #FFFFFF;
+  --color-bg-card: rgba(255,255,255,0.04);
+
+  --color-text-primary: #0F2640;
+  --color-text-secondary: rgba(15,38,64,0.65);
+  --color-text-inverse: #FFFFFF;
+  --color-text-inverse-sub: rgba(255,255,255,0.72);
+  --color-text-inverse-muted: rgba(255,255,255,0.55);
+  --color-text-inverse-label: rgba(255,255,255,0.48);
+
+  --color-border-dark: rgba(255,255,255,0.10);
+  --color-border-light: rgba(15,38,64,0.10);
+  --color-border-accent: rgba(232,145,58,0.40);
+
+  --shadow-card: 0 2px 16px rgba(15,38,64,0.08), 0 0 0 0.5px rgba(15,38,64,0.06);
+  --shadow-card-hover: 0 8px 32px rgba(15,38,64,0.14), 0 0 0 0.5px rgba(15,38,64,0.08);
+  --shadow-dark-card: 0 2px 24px rgba(0,0,0,0.32), 0 0 0 0.5px rgba(255,255,255,0.08);
+  --shadow-dark-hover: 0 8px 40px rgba(0,0,0,0.48), 0 0 0 0.5px rgba(255,255,255,0.14);
+  --shadow-glow: 0 0 60px rgba(232,145,58,0.18), 0 0 120px rgba(27,58,92,0.24);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 9999px;
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic UI", "Noto Sans JP", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", monospace;
+
+  --text-hero: clamp(32px, 5.5vw, 56px);
+  --text-h1: clamp(26px, 4vw, 40px);
+  --text-h2: clamp(22px, 3vw, 28px);
+  --text-h3: clamp(18px, 2.2vw, 22px);
+  --text-body-lg: clamp(16px, 2vw, 20px);
+  --text-body: clamp(14px, 1.6vw, 17px);
+  --text-caption: clamp(12px, 1.2vw, 14px);
+  --text-label: clamp(11px, 1vw, 12px);
+
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 32px;
+  --space-lg: 64px;
+  --space-xl: 120px;
+
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --text-hero: 64px;
+    --text-h1: 48px;
+    --text-h2: 32px;
+    --text-h3: 26px;
+    --text-body-lg: 22px;
+    --text-body: 19px;
+    --text-caption: 15px;
+    --space-md: 40px;
+    --space-lg: 72px;
+    --space-xl: 140px;
+  }
+}
+
+@media (min-width: 1920px) {
+  :root {
+    --text-hero: 80px;
+    --text-h1: 56px;
+    --text-h2: 38px;
+    --text-h3: 30px;
+    --text-body-lg: 26px;
+    --text-body: 22px;
+    --text-caption: 16px;
+    --space-md: 48px;
+    --space-lg: 88px;
+    --space-xl: 160px;
+  }
+}
+
+/* =====================================================
+   RESET & BASE
+   ===================================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html {
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body { background: var(--color-bg-dark); color: var(--color-text-inverse); overflow-x: hidden; }
+
+.sp-br { display: none; }
+@media (max-width: 767px) { .sp-br { display: initial; } }
+
+/* =====================================================
+   FROSTED GLASS
+   ===================================================== */
+.frosted {
+  background: rgba(15,38,64,0.72);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+}
+@supports not (backdrop-filter: blur(1px)) {
+  .frosted { background: rgba(15,38,64,0.95); }
+}
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+.header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 0 var(--space-md);
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 0.5px solid var(--color-border-dark);
+}
+.header__logo {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--color-text-inverse);
+  letter-spacing: -0.02em;
+}
+.header__logo span {
+  color: var(--color-accent);
+}
+.header__badge {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-text-inverse-label);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(255,255,255,0.07);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  border: 0.5px solid var(--color-border-dark);
+}
+
+/* =====================================================
+   SECTION LAYOUT
+   ===================================================== */
+.section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: calc(56px + var(--space-xl)) var(--space-md);
+  scroll-snap-align: start;
+  position: relative;
+  overflow: hidden;
+}
+.section__inner {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+@media (min-width: 1440px) {
+  .section__inner { max-width: 1440px; }
+  .section { padding: calc(56px + 140px) var(--space-lg); }
+}
+@media (min-width: 1920px) {
+  .section__inner { max-width: 1700px; }
+  .section { padding: calc(56px + 160px) 110px; }
+}
+
+/* =====================================================
+   BACKGROUND VARIANTS
+   ===================================================== */
+.bg-dark { background: var(--color-bg-dark); }
+.bg-dark2 { background: var(--color-bg-dark2); }
+.bg-light { background: var(--color-bg-light); }
+.bg-white { background: var(--color-bg-white); }
+
+.bg-dark .section__inner,
+.bg-dark2 .section__inner { color: var(--color-text-inverse); }
+.bg-light .section__inner,
+.bg-white .section__inner { color: var(--color-text-primary); }
+
+/* Section transition gradient shadows */
+.bg-light::before,
+.bg-white::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 12px;
+  background: linear-gradient(to bottom, rgba(15,38,64,0.06), transparent);
+  pointer-events: none;
+}
+
+/* =====================================================
+   SECTION EYEBROW / LABEL
+   ===================================================== */
+.section__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 20px;
+}
+.section__eyebrow-line {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background: var(--color-accent);
+}
+.section__eyebrow--light { color: rgba(15,38,64,0.50); }
+.section__eyebrow--light .section__eyebrow-line { background: rgba(15,38,64,0.35); }
+
+/* =====================================================
+   TYPOGRAPHY BASE
+   ===================================================== */
+.text-hero {
+  font-size: var(--text-hero);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+}
+.text-h1 {
+  font-size: var(--text-h1);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+.text-h2 {
+  font-size: var(--text-h2);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+.text-h3 {
+  font-size: var(--text-h3);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+.text-body-lg {
+  font-size: var(--text-body-lg);
+  font-weight: 400;
+  line-height: 1.65;
+}
+.text-body {
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: 1.70;
+}
+.text-caption {
+  font-size: var(--text-caption);
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+/* =====================================================
+   ANIMATION KEYFRAMES
+   ===================================================== */
+@keyframes fadeBlurIn {
+  from { opacity: 0; filter: blur(8px); transform: scale(0.98); }
+  to   { opacity: 1; filter: blur(0);   transform: scale(1); }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideLeft {
+  from { opacity: 0; transform: translateX(32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(-32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.94); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.6; }
+  50%       { opacity: 1.0; }
+}
+@keyframes accentSlide {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Animation utility classes */
+.anim--blur-scale { animation: fadeBlurIn 0.9s var(--ease-out) both; }
+.anim--up         { animation: slideUp   0.7s var(--ease-out) both; }
+.anim--left       { animation: slideLeft 0.7s var(--ease-out) both; }
+.anim--right      { animation: slideRight 0.7s var(--ease-out) both; }
+.anim--scale      { animation: scaleIn   0.6s var(--ease-spring) both; }
+
+/* Stagger delays */
+.anim-d1 { animation-delay: 0.08s; }
+.anim-d2 { animation-delay: 0.16s; }
+.anim-d3 { animation-delay: 0.24s; }
+.anim-d4 { animation-delay: 0.32s; }
+.anim-d5 { animation-delay: 0.40s; }
+.anim-d6 { animation-delay: 0.48s; }
+.anim-d7 { animation-delay: 0.56s; }
+.anim-d8 { animation-delay: 0.64s; }
+
+/* Pause before scroll reveal */
+.will-animate {
+  opacity: 0;
+  animation-play-state: paused !important;
+}
+.will-animate.is-visible {
+  animation-play-state: running !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim--blur-scale, .anim--up, .anim--left, .anim--right, .anim--scale {
+    animation: none !important; opacity: 1 !important; transform: none !important;
+  }
+}
+
+/* =====================================================
+   S1: HERO / 表紙
+   ===================================================== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: calc(56px + 80px) var(--space-md) var(--space-xl);
+  background: var(--color-bg-dark2);
+  position: relative;
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+.hero__bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 100%, transparent 40%, black 100%);
+}
+.hero__bg-glow {
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 70%;
+  height: 80%;
+  background: radial-gradient(ellipse, rgba(232,145,58,0.10) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero__bg-glow2 {
+  position: absolute;
+  bottom: 10%;
+  left: -5%;
+  width: 50%;
+  height: 50%;
+  background: radial-gradient(ellipse, rgba(27,58,92,0.40) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero__inner {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+@media (min-width: 1440px) { .hero__inner { max-width: 1440px; } }
+@media (min-width: 1920px) { .hero__inner { max-width: 1700px; } }
+
+.hero__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: 48px;
+}
+.hero__tag {
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  background: rgba(232,145,58,0.12);
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  border: 0.5px solid rgba(232,145,58,0.30);
+}
+.hero__tag--secondary {
+  color: var(--color-text-inverse-label);
+  background: rgba(255,255,255,0.05);
+  border-color: var(--color-border-dark);
+}
+.hero__eyebrow {
+  font-size: var(--text-caption);
+  font-weight: 300;
+  color: var(--color-text-inverse-muted);
+  letter-spacing: 0.06em;
+}
+
+.hero__headline {
+  font-size: var(--text-hero);
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -0.04em;
+  color: var(--color-text-inverse);
+  margin-bottom: 32px;
+}
+.hero__headline-sub {
+  display: block;
+  font-weight: 300;
+  font-size: 0.58em;
+  letter-spacing: -0.01em;
+  color: var(--color-text-inverse-sub);
+  margin-top: 8px;
+}
+.hero__accent {
+  color: var(--color-accent);
+  position: relative;
+}
+.hero__accent::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -4px;
+  width: 100%; height: 3px;
+  background: linear-gradient(90deg, var(--color-accent), rgba(232,145,58,0.30));
+  border-radius: 2px;
+  transform-origin: left;
+  animation: accentSlide 0.8s var(--ease-out) 0.6s both;
+}
+
+.hero__body {
+  font-size: var(--text-body-lg);
+  font-weight: 400;
+  color: var(--color-text-inverse-sub);
+  line-height: 1.7;
+  max-width: 680px;
+  margin-bottom: 56px;
+}
+
+.hero__stats {
+  display: flex;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+}
+.hero__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.hero__stat-value {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--color-text-inverse);
+  font-family: var(--font-mono);
+}
+@media (min-width: 1440px) { .hero__stat-value { font-size: 44px; } }
+@media (min-width: 1920px) { .hero__stat-value { font-size: 52px; } }
+.hero__stat-label {
+  font-size: var(--text-caption);
+  font-weight: 500;
+  color: var(--color-text-inverse-muted);
+  letter-spacing: 0.04em;
+}
+.hero__stat-accent { color: var(--color-accent); }
+
+.hero__scroll-hint {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text-inverse-label);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  z-index: 2;
+}
+.hero__scroll-line {
+  width: 1px;
+  height: 32px;
+  background: linear-gradient(to bottom, var(--color-accent), transparent);
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+/* =====================================================
+   S2: 本展示会の本質 (dark)
+   ===================================================== */
+.essence { background: var(--color-bg-dark); }
+.essence__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+@media (max-width: 767px) {
+  .essence__grid { grid-template-columns: 1fr; gap: var(--space-lg); }
+}
+.essence__kicker {
+  font-size: clamp(48px, 6vw, 80px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.0;
+  color: var(--color-text-inverse);
+}
+@media (min-width: 1440px) { .essence__kicker { font-size: 80px; } }
+@media (min-width: 1920px) { .essence__kicker { font-size: 96px; } }
+.essence__kicker-accent {
+  display: block;
+  color: var(--color-accent);
+  font-weight: 300;
+  font-size: 0.52em;
+  letter-spacing: -0.01em;
+  margin-top: 8px;
+}
+.essence__divider {
+  width: 48px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-accent), transparent);
+  margin: var(--space-md) 0;
+}
+.essence__body {
+  font-size: var(--text-body-lg);
+  font-weight: 400;
+  color: var(--color-text-inverse-sub);
+  line-height: 1.75;
+}
+.essence__cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+.essence__card {
+  background: var(--color-bg-card);
+  border: 0.5px solid var(--color-border-dark);
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  position: relative;
+  overflow: hidden;
+}
+@media (min-width: 1440px) { .essence__card { padding: 32px 40px; } }
+@media (min-width: 1920px) { .essence__card { padding: 40px 48px; } }
+.essence__card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--color-accent);
+  border-radius: 2px 0 0 2px;
+}
+.essence__card-label {
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 8px;
+}
+.essence__card-title {
+  font-size: var(--text-h3);
+  font-weight: 700;
+  color: var(--color-text-inverse);
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+.essence__card-desc {
+  font-size: var(--text-body);
+  color: var(--color-text-inverse-sub);
+  line-height: 1.65;
+}
+
+/* =====================================================
+   S3: ブランドコンセプト (light)
+   ===================================================== */
+.brand { background: var(--color-bg-light); }
+.brand__header {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+.brand__h1 {
+  font-size: var(--text-h1);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+.brand__h1::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent), rgba(232,145,58,0.3));
+  margin: 20px auto 0;
+  border-radius: 2px;
+}
+.brand__sub {
+  font-size: var(--text-body-lg);
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  word-break: keep-all;
+  white-space: nowrap;
+  overflow: visible;
+}
+.brand__pairs {
+  display: flex;
+  flex-direction: column;
+  max-width: 1100px;
+  margin: 0 auto;
+  border-top: 1px solid rgba(15,38,64,0.10);
+}
+@media (min-width: 1440px) { .brand__pairs { max-width: 1200px; } }
+@media (min-width: 1920px) { .brand__pairs { max-width: 1500px; } }
+.brand__pair {
+  display: grid;
+  grid-template-columns: 1fr 56px 1fr;
+  align-items: center;
+  padding: 36px 0;
+  border-bottom: 1px solid rgba(15,38,64,0.08);
+  gap: 0;
+}
+@media (min-width: 1440px) { .brand__pair { padding: 44px 0; } }
+@media (min-width: 1920px) { .brand__pair { padding: 56px 0; } }
+@media (max-width: 767px) {
+  .brand__pair { grid-template-columns: 1fr; gap: 8px; padding: 28px 0; }
+}
+.brand__before {
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 200;
+  color: rgba(15,38,64,0.28);
+  line-height: 1.1;
+  text-decoration: line-through;
+  text-decoration-color: rgba(15,38,64,0.18);
+  letter-spacing: -0.03em;
+  text-align: right;
+  padding-right: 24px;
+}
+@media (min-width: 1440px) { .brand__before { font-size: 52px; } }
+@media (min-width: 1920px) { .brand__before { font-size: 64px; } }
+.brand__arrow {
+  text-align: center;
+  color: var(--color-accent);
+  font-size: 22px;
+  font-weight: 300;
+  opacity: 0.80;
+}
+.brand__after {
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 800;
+  color: var(--color-primary);
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  padding-left: 24px;
+  position: relative;
+}
+@media (min-width: 1440px) { .brand__after { font-size: 52px; } }
+@media (min-width: 1920px) { .brand__after { font-size: 64px; } }
+.brand__after::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10%;
+  height: 80%;
+  width: 3px;
+  background: var(--color-accent);
+  border-radius: 2px;
+}
+@media (max-width: 767px) {
+  .brand__before { text-align: left; padding-right: 0; }
+  .brand__after { padding-left: 16px; }
+  .brand__arrow { text-align: left; }
+}
+
+
+/* =====================================================
+   S4: 非代替宣言 (dark)
+   ===================================================== */
+.nonduplicate { background: var(--color-bg-dark); }
+.nonduplicate__center {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+@media (min-width: 1440px) { .nonduplicate__center { max-width: 1000px; } }
+@media (min-width: 1920px) { .nonduplicate__center { max-width: 1200px; } }
+.nonduplicate__headline {
+  font-size: var(--text-hero);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  color: var(--color-text-inverse);
+  margin-bottom: var(--space-lg);
+  text-align: center;
+}
+.nonduplicate__headline em {
+  font-style: normal;
+  color: var(--color-accent);
+  display: block;
+  font-weight: 300;
+  font-size: 0.48em;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+.nonduplicate__companies {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-lg);
+}
+.nonduplicate__company {
+  font-size: var(--text-h3);
+  font-weight: 600;
+  color: rgba(255,255,255,0.48);
+  padding: 14px 28px;
+  border: 0.5px solid rgba(255,255,255,0.10);
+  border-radius: var(--radius-md);
+  position: relative;
+}
+.nonduplicate__company::before {
+  content: '×';
+  position: absolute;
+  top: -10px;
+  right: -4px;
+  font-size: 16px;
+  color: var(--color-warning);
+  font-weight: 700;
+  background: var(--color-bg-dark);
+  padding: 0 4px;
+  line-height: 1;
+}
+.nonduplicate__statement {
+  font-size: var(--text-body-lg);
+  font-weight: 400;
+  color: var(--color-text-inverse-sub);
+  line-height: 1.75;
+  margin-bottom: var(--space-md);
+}
+.nonduplicate__declaration {
+  font-size: var(--text-h2);
+  font-weight: 700;
+  color: var(--color-text-inverse);
+  line-height: 1.4;
+  background: rgba(232,145,58,0.08);
+  border: 0.5px solid rgba(232,145,58,0.25);
+  border-radius: var(--radius-lg);
+  padding: 28px 40px;
+  margin-top: var(--space-md);
+}
+@media (min-width: 1440px) { .nonduplicate__declaration { padding: 36px 56px; } }
+@media (min-width: 1920px) { .nonduplicate__declaration { padding: 44px 64px; } }
+
+/* =====================================================
+   S5: 市場三層・立ち位置 (white)
+   ===================================================== */
+.market { background: var(--color-bg-white); }
+.market__title {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+.market__title h2 {
+  font-size: var(--text-h1);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: -0.025em;
+}
+.market__title h2::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2.5px;
+  background: var(--color-accent);
+  margin: 20px auto 0;
+  border-radius: 2px;
+  opacity: 0.6;
+}
+.market__layers {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+@media (min-width: 1440px) { .market__layers { max-width: 1000px; } }
+@media (min-width: 1920px) { .market__layers { max-width: 1200px; } }
+.market__layer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: 24px 32px;
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-light);
+  border: 0.5px solid rgba(15,38,64,0.08);
+  box-shadow: var(--shadow-card);
+}
+@media (min-width: 1440px) { .market__layer { padding: 28px 40px; } }
+@media (min-width: 1920px) { .market__layer { padding: 36px 56px; } }
+.market__layer--dbsheet {
+  background: linear-gradient(135deg, rgba(27,58,92,0.06), rgba(232,145,58,0.04));
+  border-color: rgba(232,145,58,0.30);
+  box-shadow: var(--shadow-card), 0 0 0 1px rgba(232,145,58,0.10);
+  transform: scale(1.02);
+}
+.market__layer-num {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  min-width: 28px;
+  text-align: center;
+  font-family: var(--font-mono);
+}
+.market__layer-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.market__layer-icon svg { display: block; }
+.market__layer-icon--erp { background: rgba(59,130,246,0.10); }
+.market__layer-icon--saas { background: rgba(48,164,108,0.10); }
+.market__layer-icon--excel { background: rgba(232,145,58,0.10); }
+.market__layer-icon--dbsheet { background: rgba(27,58,92,0.12); }
+.market__layer-content { flex: 1; }
+.market__layer-title {
+  font-size: var(--text-h3);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 4px;
+}
+.market__layer--dbsheet .market__layer-title { color: var(--color-primary); font-weight: 800; }
+.market__layer-names {
+  font-size: var(--text-caption);
+  font-weight: 400;
+  color: var(--color-text-secondary);
+}
+.market__layer-badge {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--color-accent);
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+}
+.market__arrow {
+  text-align: center;
+  font-size: 18px;
+  color: var(--color-accent);
+  margin: -2px 0;
+  opacity: 0.60;
+}
+.market__position-note {
+  text-align: center;
+  margin-top: var(--space-md);
+  font-size: var(--text-body);
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+/* =====================================================
+   S6: 本当の競合 (light)
+   ===================================================== */
+.competitor { background: var(--color-bg-light); }
+.competitor__header {
+  margin-bottom: var(--space-lg);
+}
+.competitor__h1 {
+  font-size: var(--text-h1);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+.competitor__h1::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2.5px;
+  background: var(--color-accent);
+  margin-top: 20px;
+  border-radius: 2px;
+  opacity: 0.6;
+}
+.competitor__sub {
+  font-size: var(--text-body-lg);
+  color: var(--color-text-secondary);
+  margin-top: 16px;
+}
+.competitor__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-sm);
+  width: 100%;
+}
+@media (min-width: 1024px) { .competitor__grid { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 767px) { .competitor__grid { grid-template-columns: 1fr; } }
+.competitor__card {
+  background: var(--color-bg-white);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  border: 0.5px solid rgba(15,38,64,0.08);
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+}
+@media (min-width: 1440px) { .competitor__card { padding: 32px; } }
+@media (min-width: 1920px) { .competitor__card { padding: 40px; } }
+.competitor__card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--color-warning);
+  opacity: 0.70;
+}
+.competitor__card-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background: rgba(229,72,77,0.08);
+  color: var(--color-warning);
+  flex-shrink: 0;
+}
+.competitor__card-icon svg { display: block; }
+.competitor__card-title {
+  font-size: var(--text-h3);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 8px;
+}
+.competitor__card-desc {
+  font-size: var(--text-body);
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+}
+.competitor__bottom {
+  margin-top: var(--space-lg);
+  padding: 28px 36px;
+  background: var(--color-bg-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(15,38,64,0.08);
+  box-shadow: var(--shadow-card);
+  width: 100%;
+  font-size: var(--text-body-lg);
+  font-weight: 400;
+  color: var(--color-text-primary);
+  line-height: 1.7;
+}
+@media (min-width: 1440px) { .competitor__bottom { padding: 32px 48px; } }
+@media (min-width: 1920px) { .competitor__bottom { padding: 36px 56px; } }
+.competitor__bottom strong { color: var(--color-primary); font-weight: 700; }
+
+/* =====================================================
+   S6.5: Excel × AI (light)
+   ===================================================== */
+.exai { max-width: 1300px; margin: 0 auto; }
+@media (min-width: 1440px) { .exai { max-width: 1400px; } }
+@media (min-width: 1920px) { .exai { max-width: 1600px; } }
+.exai__grid { display: flex; flex-direction: column; gap: var(--space-md); align-items: stretch; }
+@media (min-width: 768px) { .exai__grid { flex-direction: row; gap: 0; } }
+.exai__card { flex: 1; border-radius: var(--radius-lg); overflow: hidden; border: 0.5px solid var(--color-border-light); box-shadow: var(--shadow-card); background: var(--color-bg-white); }
+.exai__card-header { padding: 16px 32px; font-size: var(--text-h2); font-weight: 600; }
+@media (min-width: 1440px) { .exai__card-header { padding: 24px 48px; } }
+@media (min-width: 1920px) { .exai__card-header { padding: 32px 64px; } }
+.exai__card--excel .exai__card-header { background: rgba(27,58,92,0.06); color: var(--color-primary); border-bottom: 2px solid rgba(27,58,92,0.10); }
+.exai__card--ai .exai__card-header { background: rgba(232,145,58,0.06); color: var(--color-accent); border-bottom: 2px solid rgba(232,145,58,0.10); }
+.exai__card-body { padding: 16px 32px; }
+@media (min-width: 1440px) { .exai__card-body { padding: 24px 48px; } }
+@media (min-width: 1920px) { .exai__card-body { padding: 32px 64px; } }
+.exai__item { font-size: var(--text-body); color: var(--color-text-primary); padding: 8px 0; border-bottom: 0.5px solid var(--color-border-light); }
+.exai__item:last-child { border-bottom: none; }
+.exai__center { display: none; flex-direction: column; align-items: center; justify-content: center; padding: 0 var(--space-sm); flex-shrink: 0; min-width: 140px; position: relative; }
+@media (min-width: 768px) { .exai__center { display: flex; } }
+.exai__center-label { font-size: var(--text-h2); color: var(--color-accent); font-weight: 700; text-shadow: 0 0 20px rgba(232,145,58,0.2); position: relative; z-index: 1; }
+.exai__center-line { width: 2px; height: 40px; background: linear-gradient(to bottom, transparent, var(--color-accent), transparent); margin: 8px 0; }
+.exai__center-arrows { display: flex; align-items: center; gap: 4px; }
+.exai__center-arrows svg { width: 32px; height: 32px; stroke: var(--color-accent); fill: none; }
+.exai__message { text-align: center; font-size: var(--text-body-lg); color: var(--color-primary); font-weight: 600; margin-top: var(--space-lg); width: 100%; max-width: none; margin-left: 0; margin-right: 0; padding: var(--space-sm) var(--space-md); border-radius: var(--radius-lg); background: rgba(27,58,92,0.02); }
+@media (max-width: 767px) { .exai__message { border-radius: var(--radius-md); } }
+
+/* =====================================================
+   S7: 三段作戦 (white)
+   ===================================================== */
+.strategy { background: var(--color-bg-white); }
+.strategy__header { text-align: center; margin-bottom: var(--space-lg); }
+.strategy__h1 {
+  font-size: var(--text-h1);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: -0.025em;
+}
+.strategy__h1::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2.5px;
+  background: var(--color-accent);
+  margin: 20px auto 0;
+  border-radius: 2px;
+  opacity: 0.6;
+}
+.strategy__steps {
+  display: flex;
+  gap: var(--space-sm);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+@media (min-width: 1440px) { .strategy__steps { max-width: 1300px; } }
+@media (min-width: 1920px) { .strategy__steps { max-width: 1600px; } }
+@media (max-width: 1023px) {
+  .strategy__steps { flex-direction: column; max-width: 700px; }
+}
+.strategy__step {
+  flex: 1;
+  background: var(--color-bg-light);
+  border-radius: var(--radius-xl);
+  padding: 36px 32px;
+  border: 0.5px solid rgba(15,38,64,0.08);
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+}
+@media (min-width: 1440px) { .strategy__step { padding: 40px 36px; } }
+@media (min-width: 1920px) { .strategy__step { padding: 56px 48px; } }
+.strategy__step-num {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  font-size: 48px;
+  font-weight: 800;
+  color: rgba(15,38,64,0.06);
+  font-family: var(--font-mono);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+@media (min-width: 1440px) { .strategy__step-num { font-size: 64px; } }
+@media (min-width: 1920px) { .strategy__step-num { font-size: 80px; } }
+.strategy__step-phase {
+  font-size: var(--text-label);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.strategy__step-phase-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+.strategy__step-title {
+  font-size: var(--text-h3);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+.strategy__step-goal {
+  font-size: var(--text-caption);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.strategy__step-points {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.strategy__step-points li {
+  font-size: var(--text-body);
+  color: var(--color-text-secondary);
+  line-height: 1.55;
+  padding-left: 14px;
+  position: relative;
+}
+.strategy__step-points li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+  font-weight: 700;
+  font-size: 11px;
+  top: 3px;
+}
+.strategy__step-role {
+  font-size: var(--text-caption);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  background: var(--color-bg-white);
+  border: 0.5px solid rgba(15,38,64,0.10);
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  display: inline-block;
+}
+.strategy__step-role span { color: var(--color-primary); }
+.strategy__connector {
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  color: var(--color-accent);
+  font-size: 20px;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 60px;
+}
+@media (max-width: 1023px) {
+  .strategy__connector { transform: rotate(90deg); margin: 0 auto; padding: 8px 0; }
+}
+/* Funnel - proportional bar chart */
+.strategy__funnel {
+  margin-top: var(--space-lg);
+  padding: 28px 36px 32px;
+  background: var(--color-bg-light);
+  border-radius: var(--radius-lg);
+  border: 0.5px solid rgba(15,38,64,0.08);
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 1440px) { .strategy__funnel { max-width: 1300px; padding: 32px 40px 36px; } }
+@media (min-width: 1920px) { .strategy__funnel { max-width: 1600px; padding: 36px 48px 40px; } }
+@media (max-width: 1023px) { .strategy__funnel { max-width: 700px; } }
+.funnel__heading {
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  margin-bottom: 22px;
+  opacity: 0.75;
+}
+.funnel__rows { display: flex; flex-direction: column; gap: 9px; }
+.funnel__row {
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  align-items: center;
+  gap: 14px;
+}
+@media (min-width: 1024px) { .funnel__row { grid-template-columns: 100px 1fr; gap: 18px; } }
+@media (min-width: 1440px) { .funnel__row { grid-template-columns: 112px 1fr; gap: 20px; } }
+@media (min-width: 1920px) { .funnel__row { grid-template-columns: 128px 1fr; gap: 24px; } }
+.funnel__row-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-align: right;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+}
+@media (min-width: 1440px) { .funnel__row-label { font-size: 13px; } }
+@media (min-width: 1920px) { .funnel__row-label { font-size: 14px; } }
+.funnel__row-track {
+  height: 34px;
+  background: rgba(15,38,64,0.04);
+  border-radius: 6px;
+  overflow: hidden;
+}
+@media (min-width: 1024px) { .funnel__row-track { height: 38px; } }
+@media (min-width: 1440px) { .funnel__row-track { height: 42px; } }
+@media (min-width: 1920px) { .funnel__row-track { height: 48px; } }
+.funnel__row-bar {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  border-radius: 6px;
+  min-width: 48px;
+}
+.funnel__row-num {
+  font-size: 13px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  color: rgba(15,38,64,0.75);
+  white-space: nowrap;
+  line-height: 1;
+}
+/* Bar width classes */
+.funnel__row-bar--100 { width: 100%; background: rgba(59,130,246,0.18); }
+.funnel__row-bar--40  { width: 40%;  background: rgba(59,130,246,0.28); }
+.funnel__row-bar--20  { width: 20%;  background: rgba(232,145,58,0.28); }
+.funnel__row-bar--4   { width: 10%;  background: rgba(232,145,58,0.45); min-width: 52px; }
+.funnel__row-bar--2   { width: 5%;   background: rgba(48,164,108,0.55); min-width: 52px; }
+.funnel__row-bar--4 .funnel__row-num  { color: var(--color-accent); }
+.funnel__row-bar--2 .funnel__row-num  { color: var(--color-success); }
+/* Divider between acquisition and conversion */
+.funnel__divider {
+  border: none;
+  border-top: 1px dashed rgba(15,38,64,0.12);
+  margin: 4px 0;
+}
+
+
+/* =====================================================
+   S8: 役割分担 (light)
+   ===================================================== */
+.roles { background: var(--color-bg-light); }
+.roles__header { margin-bottom: var(--space-lg); }
+.roles__h1 {
+  font-size: var(--text-h1);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: -0.025em;
+  margin-bottom: 12px;
+}
+.roles__h1::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2.5px;
+  background: var(--color-accent);
+  margin-top: 20px;
+  border-radius: 2px;
+  opacity: 0.6;
+}
+.roles__sub {
+  font-size: var(--text-body-lg);
+  color: var(--color-text-secondary);
+  margin-top: 16px;
+}
+.roles__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: 1200px;
+}
+@media (min-width: 1440px) { .roles__grid { max-width: 1300px; } }
+@media (min-width: 1920px) { .roles__grid { max-width: 1600px; } }
+@media (max-width: 1023px) { .roles__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 767px) { .roles__grid { grid-template-columns: 1fr; } }
+.roles__card {
+  background: var(--color-bg-white);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  border: 0.5px solid rgba(15,38,64,0.08);
+  box-shadow: var(--shadow-card);
+}
+@media (min-width: 1440px) { .roles__card { padding: 32px; } }
+@media (min-width: 1920px) { .roles__card { padding: 40px; } }
+.roles__card-icon {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background: rgba(27,58,92,0.08);
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+.roles__card--internal .roles__card-icon { background: rgba(232,145,58,0.10); color: var(--color-accent); }
+.roles__card-icon svg { display: block; }
+.roles__card-title {
+  font-size: var(--text-h3);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 8px;
+}
+.roles__card-scope {
+  font-size: var(--text-body);
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+}
+.roles__card--internal {
+  border-color: rgba(232,145,58,0.30);
+  background: linear-gradient(135deg, #fff, rgba(232,145,58,0.02));
+}
+.roles__share {
+  margin-top: var(--space-lg);
+  padding: 24px 32px;
+  background: var(--color-bg-white);
+  border-radius: var(--radius-lg);
+  border: 0.5px solid rgba(15,38,64,0.08);
+  box-shadow: var(--shadow-card);
+  max-width: 1200px;
+}
+@media (min-width: 1920px) { .roles__share { max-width: 1600px; padding: 32px 48px; } }
+.roles__share-title {
+  font-size: var(--text-caption);
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  margin-bottom: 16px;
+}
+.roles__share-targets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.roles__share-tag {
+  font-size: var(--text-caption);
+  font-weight: 600;
+  color: var(--color-primary);
+  background: rgba(27,58,92,0.07);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  border: 0.5px solid rgba(27,58,92,0.12);
+}
+
+/* =====================================================
+   S9: 成功定義 (dark)
+   ===================================================== */
+.success { background: var(--color-bg-dark); }
+.success__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+}
+@media (max-width: 767px) {
+  .success__grid { grid-template-columns: 1fr; }
+}
+.success__block-label {
+  font-size: var(--text-label);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.success__block-label::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 1.5px;
+  background: var(--color-accent);
+}
+.success__metric {
+  margin-bottom: 32px;
+}
+.success__metric-value {
+  font-size: 56px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--color-text-inverse);
+  font-family: var(--font-mono);
+  line-height: 1;
+}
+@media (min-width: 1440px) { .success__metric-value { font-size: 72px; } }
+@media (min-width: 1920px) { .success__metric-value { font-size: 88px; } }
+.success__metric-value span { color: var(--color-accent); }
+.success__metric-unit {
+  font-size: var(--text-h3);
+  font-weight: 400;
+  color: var(--color-text-inverse-sub);
+  margin-left: 8px;
+}
+.success__metric-label {
+  font-size: var(--text-body);
+  color: var(--color-text-inverse-muted);
+  margin-top: 8px;
+}
+.success__checklist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.success__check-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 20px 24px;
+  background: rgba(255,255,255,0.04);
+  border: 0.5px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-md);
+}
+@media (min-width: 1440px) { .success__check-item { padding: 24px 28px; } }
+@media (min-width: 1920px) { .success__check-item { padding: 28px 36px; } }
+.success__check-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(48,164,108,0.20);
+  border: 1.5px solid var(--color-success);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: var(--color-success);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.success__check-text {
+  font-size: var(--text-body-lg);
+  font-weight: 400;
+  color: var(--color-text-inverse-sub);
+  line-height: 1.6;
+}
+.success__check-text strong {
+  color: var(--color-text-inverse);
+  font-weight: 600;
+}
+
+/* =====================================================
+   S10: 最終メッセージ (dark)
+   ===================================================== */
+.final {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: var(--color-bg-dark2);
+  padding: calc(56px + var(--space-xl)) var(--space-md);
+  scroll-snap-align: start;
+  position: relative;
+  overflow: hidden;
+}
+.final__bg-glow {
+  position: absolute;
+  bottom: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 60%;
+  background: radial-gradient(ellipse, rgba(232,145,58,0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+.final__bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse 60% 50% at 50% 50%, black 30%, transparent 80%);
+}
+.final__inner {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+@media (min-width: 1440px) { .final__inner { max-width: 1100px; } }
+@media (min-width: 1920px) { .final__inner { max-width: 1400px; } }
+.final__kicker {
+  font-size: var(--text-label);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.final__kicker::before,
+.final__kicker::after {
+  content: '';
+  display: block;
+  height: 1px;
+  width: 40px;
+  background: var(--color-accent);
+  opacity: 0.5;
+}
+.final__headline {
+  font-size: var(--text-hero);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.08;
+  color: var(--color-text-inverse);
+  margin-bottom: 40px;
+  text-align: center;
+}
+.final__headline em {
+  font-style: normal;
+  color: var(--color-accent);
+  display: block;
+}
+.final__body {
+  font-size: var(--text-body-lg);
+  font-weight: 400;
+  color: var(--color-text-inverse-sub);
+  line-height: 1.75;
+  max-width: 700px;
+  margin: 0 auto 56px;
+}
+@media (min-width: 1920px) { .final__body { max-width: 900px; } }
+.final__taglines {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  margin-bottom: 56px;
+}
+.final__tagline {
+  font-size: var(--text-h3);
+  font-weight: 600;
+  color: var(--color-text-inverse);
+  line-height: 1.4;
+  text-align: left;
+  padding: 20px 28px;
+  background: rgba(255,255,255,0.04);
+  border: 0.5px solid rgba(255,255,255,0.10);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--color-accent);
+}
+.final__tagline-sub {
+  display: block;
+  font-size: var(--text-caption);
+  font-weight: 400;
+  color: var(--color-text-inverse-muted);
+  margin-top: 4px;
+}
+.final__date {
+  font-size: var(--text-caption);
+  font-weight: 400;
+  color: var(--color-text-inverse-label);
+  margin-top: 48px;
+  font-family: var(--font-mono);
+}
+
+/* =====================================================
+   HOVER INTERACTIONS — ONLY POINTER DEVICES
+   ===================================================== */
+@media (hover: hover) and (pointer: fine) {
+  .header__badge:hover {
+    background: rgba(255,255,255,0.10);
+    transition: background 0.2s;
+  }
+  .essence__card:hover {
+    border-color: rgba(232,145,58,0.30);
+    background: rgba(255,255,255,0.06);
+    box-shadow: var(--shadow-dark-hover);
+    transform: translateY(-2px);
+    transition: all 0.3s var(--ease-out);
+  }
+  .market__layer:hover:not(.market__layer--dbsheet) {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-2px);
+    transition: all 0.3s var(--ease-out);
+  }
+  .market__layer--dbsheet:hover {
+    box-shadow: var(--shadow-card-hover), 0 0 0 2px rgba(232,145,58,0.20);
+    transform: scale(1.03);
+    transition: all 0.3s var(--ease-out);
+  }
+  .competitor__card:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-3px);
+    transition: all 0.3s var(--ease-out);
+  }
+  .strategy__step:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-3px);
+    transition: all 0.3s var(--ease-out);
+  }
+  .roles__card:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-2px);
+    transition: all 0.3s var(--ease-out);
+  }
+  .success__check-item:hover {
+    border-color: rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.06);
+    transition: all 0.2s;
+  }
+  .final__tagline:hover {
+    border-left-color: var(--color-accent);
+    background: rgba(255,255,255,0.07);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-dark-card);
+    transition: all 0.3s var(--ease-out);
+  }
+}
+
+/* =====================================================
+   UTILITY CLASSES (replacing inline styles)
+   ===================================================== */
+.section__eyebrow--center { justify-content: center; }
+.market__layer-num--star { color: var(--color-primary); font-weight: 800; }
+.market__layer-names--primary { color: var(--color-primary); font-weight: 500; }
+.success__h1 {
+  font-size: var(--text-h1);
+  font-weight: 700;
+  color: var(--color-text-inverse);
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin-bottom: 32px;
+}
+.success__block-label--offset { margin-top: 80px; }
+.success__body-inverse {
+  font-size: var(--text-body-lg);
+  font-weight: 400;
+  color: var(--color-text-inverse-sub);
+  margin-bottom: 24px;
+  line-height: 1.7;
+}
+.success__body-inverse strong { color: var(--color-text-inverse); font-weight: 700; }
+/* utility */
+.nowrap { white-space: nowrap; }
+/* legacy funnel classes removed */
+.market__h2 {
+  font-size: var(--text-h1);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+.market__h2::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2.5px;
+  background: var(--color-accent);
+  margin: 20px auto 0;
+  border-radius: 2px;
+  opacity: 0.6;
+}
+@media (max-width: 480px) {
+  .market__h2 { font-size: clamp(22px, 5.6vw, 28px); }
+}
+.site-footer {
+  background: var(--color-bg-dark2);
+  padding: 24px var(--space-md);
+  border-top: 0.5px solid rgba(255,255,255,0.07);
+  text-align: center;
+}
+.site-footer__text {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.48);
+  letter-spacing: 0.06em;
+  font-family: var(--font-mono);
+}
+
+.text-white { color: #fff; }
+.text-near-white { color: rgba(255,255,255,0.92); }
+.text-near-white2 { color: rgba(255,255,255,0.95); }
+
+/* =====================================================
+   SECTION PROGRESS INDICATOR
+   ===================================================== */
+.progress {
+  position: fixed;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 50;
+}
+@media (max-width: 767px) { .progress { display: none; } }
+.progress__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+.progress__dot--active {
+  background: var(--color-accent);
+  transform: scale(1.5);
+}
+</style>
+  
+  <!-- OGP / Twitter: image -->
+  
+</head>
+<body>
+
+<!-- FIXED HEADER -->
+<header class="header frosted">
+  <div class="header__logo">db<span>Sheet</span></div>
+  <div class="header__badge">展示会作戦企画書</div>
+</header>
+
+<!-- PROGRESS INDICATOR -->
+<nav class="progress" id="progress" aria-hidden="true">
+  <button class="progress__dot progress__dot--active" data-section="0" type="button" aria-label="表紙"></button>
+  <button class="progress__dot" data-section="1" type="button" aria-label="本質"></button>
+  <button class="progress__dot" data-section="2" type="button" aria-label="ブランド"></button>
+  <button class="progress__dot" data-section="3" type="button" aria-label="非代替"></button>
+  <button class="progress__dot" data-section="4" type="button" aria-label="市場構造"></button>
+  <button class="progress__dot" data-section="5" type="button" aria-label="競合"></button>
+  <button class="progress__dot" data-section="6" type="button" aria-label="作戦"></button>
+  <button class="progress__dot" data-section="7" type="button" aria-label="体制"></button>
+  <button class="progress__dot" data-section="8" type="button" aria-label="成功定義"></button>
+  <button class="progress__dot" data-section="9" type="button" aria-label="最終"></button>
+</nav>
+
+<!-- =====================================================
+     S1: HERO / 表紙
+     ===================================================== -->
+<section class="hero" id="section-1-hero" data-section="0">
+  <div class="hero__bg-grid" aria-hidden="true"></div>
+  <div class="hero__bg-glow" aria-hidden="true"></div>
+  <div class="hero__bg-glow2" aria-hidden="true"></div>
+
+  <div class="hero__inner">
+    <div class="hero__meta anim--up">
+      <span class="hero__tag">社内発表資料</span>
+      <span class="hero__tag hero__tag--secondary">製造業DX展 名古屋</span>
+      <span class="hero__eyebrow">Confidential — Internal Use Only</span>
+    </div>
+
+    <h1 class="hero__headline anim--blur-scale anim-d1">
+      展示会作戦
+      <span class="hero__headline-sub">dbSheet のコンセプトを定義する場</span>
+    </h1>
+
+    <p class="hero__body anim--up anim-d3">
+      本展示会はリード獲得イベントではない。<br><br class="sp-br">
+      ブランドコンセプトを定義することが目的である。
+    </p>
+
+    <div class="hero__stats">
+      <div class="hero__stat anim--scale anim-d4">
+        <span class="hero__stat-value">100<span class="hero__stat-accent">+</span></span>
+        <span class="hero__stat-label">想定リード数</span>
+      </div>
+      <div class="hero__stat anim--up anim-d5">
+        <span class="hero__stat-value"><span class="hero__stat-accent">2</span></span>
+        <span class="hero__stat-label">最終受注目標</span>
+      </div>
+      <div class="hero__stat anim--scale anim-d6">
+        <span class="hero__stat-value">3</span>
+        <span class="hero__stat-label">作戦ステージ</span>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="hero__scroll-hint" aria-hidden="true">
+    <span>Scroll</span>
+    <div class="hero__scroll-line"></div>
+  </div>
+</section>
+
+<!-- =====================================================
+     S2: 本展示会の本質
+     ===================================================== -->
+<section class="section essence bg-dark" id="section-2-essence" data-section="1">
+  <div class="section__inner">
+    <div class="essence__grid">
+      <div>
+        <div class="section__eyebrow will-animate anim--right">
+          <span class="section__eyebrow-line"></span>
+          本展示会の本質
+        </div>
+        <div class="essence__kicker will-animate anim--right anim-d1">
+          単なる<br>集客ではない
+          <span class="essence__kicker-accent">The Real Purpose</span>
+        </div>
+        <div class="essence__divider will-animate anim--up anim-d2"></div>
+        <p class="essence__body will-animate anim--up anim-d3">
+          本展示会は「プロダクトコンセプトを定義する場」である。<br><br>
+          受注は結果であり、目的ではない。<br>
+          最大の目的は<strong class="text-near-white">ブランド理解の統一</strong>にある。
+        </p>
+      </div>
+
+      <div class="essence__cards">
+        <div class="essence__card will-animate anim--left anim-d2">
+          <div class="essence__card-label">External Goal</div>
+          <div class="essence__card-title">展示会起点で 2件受注</div>
+          <div class="essence__card-desc">
+            想定リード100名から商談化し、最終的に2件の受注を目指す。
+            展示会を単発施策ではなく継続的な関係構築の起点とする。
+          </div>
+        </div>
+        <div class="essence__card will-animate anim--left anim-d3">
+          <div class="essence__card-label">Internal Goal — 最大チャレンジ</div>
+          <div class="essence__card-title">ブランドコンセプトの統一</div>
+          <div class="essence__card-desc">
+            プロダクトブランドコンセプトを、全スタッフが
+            「同じ言葉」で説明できる状態を作る。<br>
+            デモ機でブランドコンセプトまで説明できる状態を作る。
+          </div>
+        </div>
+        <div class="essence__card will-animate anim--left anim-d4">
+          <div class="essence__card-label">Priority Note</div>
+          <div class="essence__card-title">特に初回案内を統一する</div>
+          <div class="essence__card-desc">
+            現状：社員によって案内がバラバラ。<br>
+            本企画書は展示会関係者に共有される。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     S3: ブランドコンセプト
+     ===================================================== -->
+<section class="section brand bg-light" id="section-3-brand" data-section="2">
+  <div class="section__inner">
+    <div class="brand__header">
+      <div class="section__eyebrow section__eyebrow--light section__eyebrow--center will-animate anim--up">
+        <span class="section__eyebrow-line"></span>
+        Brand Concept
+      </div>
+      <h2 class="brand__h1 will-animate anim--up anim-d1">
+        dbSheetとは何か
+      </h2>
+      <p class="brand__sub will-animate anim--up anim-d2">
+        お客様の誤解を解く。<br>
+        正しい言語定義を持つことが全ての起点である。
+      </p>
+    </div>
+
+    <div class="brand__pairs">
+      <div class="brand__pair will-animate anim--right anim-d2">
+        <span class="brand__before">脱 Excel</span>
+        <span class="brand__arrow">→</span>
+        <span class="brand__after">脱・固定業務</span>
+      </div>
+      <div class="brand__pair will-animate anim--left anim-d3">
+        <span class="brand__before">IT 刷新</span>
+        <span class="brand__arrow">→</span>
+        <span class="brand__after">変化耐性の獲得</span>
+      </div>
+      <div class="brand__pair will-animate anim--right anim-d4">
+        <span class="brand__before">ツール導入</span>
+        <span class="brand__arrow">→</span>
+        <span class="brand__after">経営リスクの低減</span>
+      </div>
+      <div class="brand__pair will-animate anim--left anim-d5">
+        <span class="brand__before">業務を固定する<br>システム</span>
+        <span class="brand__arrow">→</span>
+        <span class="brand__after">業務を変え続けるための<br class="sp-br">基盤</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     S4: 非代替宣言
+     ===================================================== -->
+<section class="section nonduplicate bg-dark" id="section-4-nonduplicate" data-section="3">
+  <div class="section__inner">
+    <div class="nonduplicate__center">
+      <div class="section__eyebrow section__eyebrow--center will-animate anim--up">
+        <span class="section__eyebrow-line"></span>
+        Non-Substitution Declaration
+      </div>
+
+      <h2 class="nonduplicate__headline will-animate anim--blur-scale anim-d1">
+        <em>dbSheet は</em>
+        代替品ではない
+      </h2>
+
+      <div class="nonduplicate__companies will-animate anim--scale anim-d2">
+        <div class="nonduplicate__company">SAP</div>
+        <div class="nonduplicate__company">Salesforce</div>
+        <div class="nonduplicate__company">kintone</div>
+      </div>
+
+      <p class="nonduplicate__statement will-animate anim--up anim-d3">
+        これらは「競合」ではない。<br>
+        土俵が異なる。戦場が異なる。役割が異なる。<br>
+        比較させてはならない。
+      </p>
+
+      <div class="nonduplicate__declaration will-animate anim--scale anim-d4">
+        dbSheet の競合は、<br>
+        <strong class="text-near-white2">放置された Excel と、変えられない業務構造</strong><span class="nowrap">である。</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     S5: 市場三層・立ち位置
+     ===================================================== -->
+<section class="section market bg-white" id="section-5-market" data-section="4">
+  <div class="section__inner">
+    <div class="market__title">
+      <div class="section__eyebrow section__eyebrow--light section__eyebrow--center will-animate anim--up">
+        <span class="section__eyebrow-line"></span>
+        Market Structure
+      </div>
+      <h2 class="market__h2 will-animate anim--left anim-d1">
+        業界構造と dbSheet の<span class="nowrap">立ち位置</span>
+      </h2>
+    </div>
+
+    <div class="market__layers">
+      <div class="market__layer will-animate anim--right anim-d1">
+        <div class="market__layer-num">①</div>
+        <div class="market__layer-icon market__layer-icon--erp"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="3" y="9" width="14" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M1 9L10 2.5L19 9" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><rect x="8" y="12" width="4" height="6" stroke="currentColor" stroke-width="1.5"/></svg></div>
+        <div class="market__layer-content">
+          <div class="market__layer-title">ERP・基幹層</div>
+          <div class="market__layer-names">SAP / Oracle / フルスクラッチ基幹 — 高額・重い・変更コスト大</div>
+        </div>
+      </div>
+
+      <div class="market__layer will-animate anim--right anim-d2">
+        <div class="market__layer-num">②</div>
+        <div class="market__layer-icon market__layer-icon--saas"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M14.5 13.5H5.5C3.5 13.5 2 12 2 10C2 8.3 3.2 6.9 4.8 6.6C4.9 4.6 6.6 3 8.7 3C10.3 3 11.7 3.9 12.4 5.2C12.8 5.1 13.2 5 13.6 5C16 5 18 7 18 9.4C18 11.7 16.4 13.5 14.5 13.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+        <div class="market__layer-content">
+          <div class="market__layer-title">SaaS 特化層</div>
+          <div class="market__layer-names">Salesforce / kintone / 業務特化クラウド — 速い・型に業務を合わせる</div>
+        </div>
+      </div>
+
+      <div class="market__arrow will-animate anim--up anim-d3">↓ dbSheetが存在する場所 ↓</div>
+
+      <div class="market__layer market__layer--dbsheet will-animate anim--scale anim-d4">
+        <div class="market__layer-num market__layer-num--star">★</div>
+        <div class="market__layer-icon market__layer-icon--dbsheet"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M12 2L4 11H10L8 18L16 9H10L12 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="market__layer-content">
+          <div class="market__layer-title">dbSheet の領域</div>
+          <div class="market__layer-names market__layer-names--primary">Excelの柔軟性 × 組織への定着 × 変化耐性 — 固定しない・重くしない・属人化しない</div>
+        </div>
+        <div class="market__layer-badge">ここで戦う</div>
+      </div>
+
+      <div class="market__arrow will-animate anim--up anim-d3">↓</div>
+
+      <div class="market__layer will-animate anim--right anim-d5">
+        <div class="market__layer-num">③</div>
+        <div class="market__layer-icon market__layer-icon--excel"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M2 8H18M2 12H18M8 3V17" stroke="currentColor" stroke-width="1.5"/></svg></div>
+        <div class="market__layer-content">
+          <div class="market__layer-title">現場 Excel 層</div>
+          <div class="market__layer-names">Excel / Access / 個人管理ファイル — 柔軟・速い・属人化・組織に残らない</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="market__position-note will-animate anim--scale anim-d6">
+      dbSheet は ① でも ② でもない。③ 現場層と ② SaaS層の間に存在する、<strong>唯一の独立した基盤</strong>である。
+    </p>
+  </div>
+</section>
+
+<!-- =====================================================
+     S6: 本当の競合
+     ===================================================== -->
+<section class="section competitor bg-light" id="section-6-competitor" data-section="5">
+  <div class="section__inner">
+    <div class="competitor__header">
+      <div class="section__eyebrow section__eyebrow--light will-animate anim--up">
+        <span class="section__eyebrow-line"></span>
+        True Competition
+      </div>
+      <h2 class="competitor__h1 will-animate anim--left anim-d1">
+        本当の競合は何か
+      </h2>
+      <p class="competitor__sub will-animate anim--right anim-d2">
+        SAP でも Salesforce でも kintone でもない。
+        私たちが戦うべき相手は組織の内側にある。
+      </p>
+    </div>
+
+    <div class="competitor__grid">
+      <div class="competitor__card will-animate anim--scale anim-d2">
+        <div class="competitor__card-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M2 6C2 4.9 2.9 4 4 4H8L10 6H18C19.1 6 20 6.9 20 8V17C20 18.1 19.1 19 18 19H4C2.9 19 2 18.1 2 17V6Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 12H14M8 15H11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <div class="competitor__card-title">放置された Excel</div>
+        <div class="competitor__card-desc">
+          誰も管理していない Excel ファイルが組織に散在し、
+          データが分断される。真実のデータが存在しなくなる。
+        </div>
+      </div>
+      <div class="competitor__card will-animate anim--up anim-d3">
+        <div class="competitor__card-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><circle cx="8" cy="7" r="3.5" stroke="currentColor" stroke-width="1.5"/><path d="M2 20C2 16.7 4.7 14 8 14C9.4 14 10.7 14.5 11.7 15.3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M15 13L20 18M20 13L15 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div class="competitor__card-title">部署ごとの分断</div>
+        <div class="competitor__card-desc">
+          担当者が変わると業務が止まる。判断の根拠が引き継がれない。
+          ナレッジが個人に閉じ、組織に残らない。
+        </div>
+      </div>
+      <div class="competitor__card will-animate anim--scale anim-d4">
+        <div class="competitor__card-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><rect x="4" y="10" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 10V7C8 4.8 9.8 3 12 3C14.2 3 16 4.8 16 7V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="15" r="1.5" fill="currentColor"/></svg></div>
+        <div class="competitor__card-title">変えられない業務構造</div>
+        <div class="competitor__card-desc">
+          長年の慣習により業務が固定化し、改善を試みても
+          仕組みに戻らない。変化に対応できない組織が生まれる。
+        </div>
+      </div>
+      <div class="competitor__card will-animate anim--up anim-d5">
+        <div class="competitor__card-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><rect x="6" y="6" width="10" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M9 6V4M13 6V4M9 18V16M13 18V16M6 9H4M6 13H4M16 9H18M16 13H18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M9 10H13M9 13H11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <div class="competitor__card-title">AI を活かせない状態</div>
+        <div class="competitor__card-desc">
+          AI を導入しても、整理されていない業務に当てても成果は出ない。
+          AI は整った業務を速くするが、整えることはしない。
+        </div>
+      </div>
+    </div>
+
+    <div class="competitor__bottom will-animate anim--scale anim-d6">
+      <strong>AI は整った業務を速くするが、整っていない業務は整えない。</strong><br>
+      業務が構造化されていない組織に AI を導入しても、期待する成果は得られない。
+      dbSheet は、AI 活用に必要不可欠な前提条件を整える基盤として機能する。
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     S7: 三段作戦構成
+     ===================================================== -->
+<!-- =====================================================
+     S6.5: Excel × AI — 役割の違い
+     ===================================================== -->
+<section class="section bg-light" id="section-6-5-excel-ai">
+  <div class="section__inner">
+    <div class="roles__header">
+      <div class="section__eyebrow section__eyebrow--light section__eyebrow--center will-animate anim--up">
+        <span class="section__eyebrow-line"></span>
+        Excel × AI
+      </div>
+      <h2 class="roles__h1 will-animate anim--up anim-d1">ExcelとAIは競合しない</h2>
+      <p class="roles__sub will-animate anim--right anim-d2">両者は競合ではない。役割が異なる。<br class="sp-br">dbSheetは両者を繋ぐ基盤である。</p>
+    </div>
+
+    <div class="exai__grid">
+      <div class="exai__card exai__card--excel will-animate anim--left anim-d2">
+        <div class="exai__card-header">Excelが強い領域</div>
+        <div class="exai__card-body">
+          <div class="exai__item">仮説構築</div>
+          <div class="exai__item">条件変更</div>
+          <div class="exai__item">判断途中経過</div>
+          <div class="exai__item">曖昧な業務設計</div>
+        </div>
+      </div>
+
+      <div class="exai__center will-animate anim--scale anim-d3" aria-hidden="true">
+        <div class="exai__center-line"></div>
+        <div class="exai__center-arrows"><svg viewBox="0 0 32 32" fill="none" stroke-width="2" aria-hidden="true"><path d="M4 16h24M8 12l-4 4 4 4M24 12l4 4-4 4"/></svg></div>
+        <div class="exai__center-label">dbSheet</div>
+        <div class="exai__center-arrows"><svg viewBox="0 0 32 32" fill="none" stroke-width="2" aria-hidden="true"><path d="M4 16h24M8 12l-4 4 4 4M24 12l4 4-4 4"/></svg></div>
+        <div class="exai__center-line"></div>
+      </div>
+
+      <div class="exai__card exai__card--ai will-animate anim--right anim-d2">
+        <div class="exai__card-header">AIが強い領域</div>
+        <div class="exai__card-body">
+          <div class="exai__item">パターン抽出</div>
+          <div class="exai__item">大量処理</div>
+          <div class="exai__item">要約</div>
+          <div class="exai__item">抽象化</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="exai__message will-animate anim--up anim-d4">両者は競合ではない。役割が異なる。<br class="sp-br">dbSheetは両者を繋ぐ基盤である。</p>
+  </div>
+</section>
+
+<!-- 続いて S7: 三段作戦構成 -->
+<section class="section strategy bg-white" id="section-7-strategy" data-section="6">
+  <div class="section__inner">
+    <div class="strategy__header">
+      <div class="section__eyebrow section__eyebrow--light section__eyebrow--center will-animate anim--up">
+        <span class="section__eyebrow-line"></span>
+        Exhibition Strategy
+      </div>
+      <h2 class="strategy__h1 will-animate anim--up anim-d1">
+        展示会三段階体験設計
+      </h2>
+    </div>
+
+    <div class="strategy__steps">
+      <div class="strategy__step will-animate anim--right anim-d2">
+        <div class="strategy__step-num">01</div>
+        <div class="strategy__step-phase">
+          <span class="strategy__step-phase-dot"></span>
+          Stage 01 — First Contact
+        </div>
+        <div class="strategy__step-title">クリック体験デモ</div>
+        <div class="strategy__step-goal">目的</div>
+        <ul class="strategy__step-points">
+          <li>言語説明ではなく「構造の違い」を体感させる</li>
+          <li>来場者に操作させ、思考停止を防ぐ</li>
+          <li>Excel 単体との構造差を直感理解させる</li>
+          <li>営業説明の前に前提認識を揃える</li>
+        </ul>
+        <div class="strategy__step-role">担当：<span>展示会スタッフ</span></div>
+      </div>
+
+      <div class="strategy__connector" aria-hidden="true">→</div>
+
+      <div class="strategy__step will-animate anim--up anim-d3">
+        <div class="strategy__step-num">02</div>
+        <div class="strategy__step-phase">
+          <span class="strategy__step-phase-dot"></span>
+          Stage 02 — Technical Trust
+        </div>
+        <div class="strategy__step-title">dbSheet 開発版<br>3 分デモ</div>
+        <div class="strategy__step-goal">目的</div>
+        <ul class="strategy__step-points">
+          <li>製品の現在地を明確化する</li>
+          <li>技術的信頼の担保</li>
+          <li>実装可能性の提示</li>
+          <li>製造業特化の具体性提示</li>
+        </ul>
+        <div class="strategy__step-role">担当：<span>技術デモ担当</span> — 3分以内</div>
+      </div>
+
+      <div class="strategy__connector" aria-hidden="true">→</div>
+
+      <div class="strategy__step will-animate anim--left anim-d4">
+        <div class="strategy__step-num">03</div>
+        <div class="strategy__step-phase">
+          <span class="strategy__step-phase-dot"></span>
+          Stage 03 — Decision
+        </div>
+        <div class="strategy__step-title">茶室商談</div>
+        <div class="strategy__step-goal">目的</div>
+        <ul class="strategy__step-points">
+          <li>構造説明から経営判断へ移行させる</li>
+          <li>「価格の議論」ではなく「構造投資の議論」へ</li>
+          <li>ブランドコンセプトの言語化確認</li>
+          <li>意思決定層との本気度確認</li>
+        </ul>
+        <div class="strategy__step-role">担当：<span>営業部</span></div>
+      </div>
+    </div>
+
+    <div class="strategy__funnel will-animate anim--scale anim-d5">
+      <div class="funnel__heading">展示会ファネル想定値</div>
+      <div class="funnel__rows">
+        <div class="funnel__row">
+          <div class="funnel__row-label">リード</div>
+          <div class="funnel__row-track">
+            <div class="funnel__row-bar funnel__row-bar--100">
+              <span class="funnel__row-num">100</span>
+            </div>
+          </div>
+        </div>
+        <div class="funnel__row">
+          <div class="funnel__row-label">クリック体験</div>
+          <div class="funnel__row-track">
+            <div class="funnel__row-bar funnel__row-bar--100">
+              <span class="funnel__row-num">100</span>
+            </div>
+          </div>
+        </div>
+        <hr class="funnel__divider">
+        <div class="funnel__row">
+          <div class="funnel__row-label">3分デモ</div>
+          <div class="funnel__row-track">
+            <div class="funnel__row-bar funnel__row-bar--40">
+              <span class="funnel__row-num">40</span>
+            </div>
+          </div>
+        </div>
+        <div class="funnel__row">
+          <div class="funnel__row-label">茶室商談</div>
+          <div class="funnel__row-track">
+            <div class="funnel__row-bar funnel__row-bar--20">
+              <span class="funnel__row-num">20</span>
+            </div>
+          </div>
+        </div>
+        <div class="funnel__row">
+          <div class="funnel__row-label">見込み</div>
+          <div class="funnel__row-track">
+            <div class="funnel__row-bar funnel__row-bar--4">
+              <span class="funnel__row-num">4</span>
+            </div>
+          </div>
+        </div>
+        <div class="funnel__row">
+          <div class="funnel__row-label">受注</div>
+          <div class="funnel__row-track">
+            <div class="funnel__row-bar funnel__row-bar--2">
+              <span class="funnel__row-num">2</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     S8: 役割分担
+     ===================================================== -->
+<section class="section roles bg-light" id="section-8-roles" data-section="7">
+  <div class="section__inner">
+    <div class="roles__header">
+      <div class="section__eyebrow section__eyebrow--light will-animate anim--up">
+        <span class="section__eyebrow-line"></span>
+        Team Structure
+      </div>
+      <h2 class="roles__h1 will-animate anim--up anim-d1">
+        役割分担と体制
+      </h2>
+      <p class="roles__sub will-animate anim--right anim-d2">
+        全員が設計意図を理解した上で動くこと。役割の曖昧化は全体の品質劣化に直結する。
+      </p>
+    </div>
+
+    <div class="roles__grid">
+      <div class="roles__card roles__card--internal will-animate anim--right anim-d2">
+        <div class="roles__card-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="10" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="10" r="1.5" fill="currentColor"/></svg></div>
+        <div class="roles__card-title">ブース責任者</div>
+        <div class="roles__card-scope">全体運営・導線管理。展示会全体の品質を保証する最終責任者。</div>
+      </div>
+      <div class="roles__card roles__card--internal will-animate anim--scale anim-d3">
+        <div class="roles__card-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M13 7L11.2 11.2L7 13L8.8 8.8L13 7Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="10" cy="10" r="1" fill="currentColor"/></svg></div>
+        <div class="roles__card-title">企画責任者</div>
+        <div class="roles__card-scope">作戦設計・統一メッセージ管理。ブランドコンセプトの一貫性を担保する。</div>
+      </div>
+      <div class="roles__card will-animate anim--right anim-d4">
+        <div class="roles__card-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="3" y="4" width="14" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M1 15.5H19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M7.5 15.5L8.5 17.5H11.5L12.5 15.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+        <div class="roles__card-title">技術デモ担当</div>
+        <div class="roles__card-scope">クリック体験デモ・開発版デモ実演。技術的信頼の担保と実装可能性の提示。</div>
+      </div>
+      <div class="roles__card will-animate anim--scale anim-d5">
+        <div class="roles__card-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 15L7.5 9.5L11.5 12.5L17 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 18H18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <div class="roles__card-title">営業部</div>
+        <div class="roles__card-scope">商談化・フォロー。展示会後の継続接触と受注推進の主担当。</div>
+      </div>
+      <div class="roles__card will-animate anim--right anim-d6">
+        <div class="roles__card-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="7" cy="6" r="3" stroke="currentColor" stroke-width="1.5"/><circle cx="14" cy="7" r="2.5" stroke="currentColor" stroke-width="1.5"/><path d="M1.5 18C1.5 15 4 12.5 7 12.5C10 12.5 12.5 15 12.5 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M12.5 14.5C13.2 13.5 14.2 12.5 15.5 12.5C17.5 12.5 19 14 19 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <div class="roles__card-title">展示会スタッフ</div>
+        <div class="roles__card-scope">誘導・初期対応。来場者をブースに引き込み、クリックデモへ誘導する。</div>
+      </div>
+      <div class="roles__card will-animate anim--scale anim-d7">
+        <div class="roles__card-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M14.5 3C16 3.8 17 5.3 17 7C17 9.2 15.2 11 13 11C12.5 11 12 10.9 11.5 10.7L5.5 17C5 17.5 4 17.5 3.5 17L3 16.5C2.5 16 2.5 15 3 14.5L9 8.5C8.8 8 8.7 7.5 8.7 7C8.7 4.8 10.5 3 12.7 3C13.3 3 13.9 3.2 14.5 3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+        <div class="roles__card-title">展示会業者（外部）</div>
+        <div class="roles__card-scope">設営・物理環境整備。ブースの構造・見た目の品質を担保する。</div>
+      </div>
+    </div>
+
+    <div class="roles__share will-animate anim--up anim-d8">
+      <div class="roles__share-title">本企画書の共有対象</div>
+      <div class="roles__share-targets">
+        <span class="roles__share-tag">社長</span>
+        <span class="roles__share-tag">経営層</span>
+        <span class="roles__share-tag">営業部</span>
+        <span class="roles__share-tag">展示会スタッフ</span>
+        <span class="roles__share-tag">展示会業者（外部）</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     S9: 成功定義
+     ===================================================== -->
+<section class="section success bg-dark" id="section-9-success" data-section="8">
+  <div class="section__inner">
+    <div class="section__eyebrow will-animate anim--up">
+      <span class="section__eyebrow-line"></span>
+      Definition of Success
+    </div>
+
+    <div class="success__grid">
+      <div>
+        <h2 class="success__h1 will-animate anim--right anim-d1">
+          成功とは何か
+        </h2>
+        <div class="success__block-label will-animate anim--up anim-d2">External Success</div>
+        <div class="success__metric will-animate anim--scale anim-d3">
+          <div class="success__metric-value"><span>2</span><span class="success__metric-unit">件受注</span></div>
+          <div class="success__metric-label">展示会起点から商談化・最終受注まで</div>
+        </div>
+        <div class="success__block-label will-animate anim--right anim-d4">Internal KPI</div>
+        <ul class="success__checklist">
+          <li class="success__check-item will-animate anim--right anim-d5">
+            <div class="success__check-icon">✓</div>
+            <div class="success__check-text">
+              <strong>商談化率の向上</strong> — 展示会来場者が次のステップへ進む割合が過去比で向上している
+            </div>
+          </li>
+          <li class="success__check-item will-animate anim--left anim-d6">
+            <div class="success__check-icon">✓</div>
+            <div class="success__check-text">
+              <strong>経営層との直接接点獲得</strong> — 意思決定者との茶室商談が成立している
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="success__block-label success__block-label--offset will-animate anim--up anim-d2">Internal Success — 最大チャレンジ</div>
+        <p class="success__body-inverse will-animate anim--up anim-d3">
+          ブランドコンセプトが言語化され、<br>
+          全社員が<strong class="text-white">同じ言葉</strong>で説明できること。
+        </p>
+        <ul class="success__checklist">
+          <li class="success__check-item will-animate anim--right anim-d4">
+            <div class="success__check-icon">✓</div>
+            <div class="success__check-text">
+              <strong>なぜ Excel を否定しないのか</strong><br>を全員が自分の言葉で説明できる
+            </div>
+          </li>
+          <li class="success__check-item will-animate anim--right anim-d5">
+            <div class="success__check-icon">✓</div>
+            <div class="success__check-text">
+              <strong>なぜ構造だけを変えるのか</strong><br>を全員が自分の言葉で説明できる
+            </div>
+          </li>
+          <li class="success__check-item will-animate anim--left anim-d6">
+            <div class="success__check-icon">✓</div>
+            <div class="success__check-text">
+              <strong>なぜそれが経営資産になるのか</strong><br>を全員が自分の言葉で説明できる
+            </div>
+          </li>
+          <li class="success__check-item will-animate anim--left anim-d7">
+            <div class="success__check-icon">✓</div>
+            <div class="success__check-text">
+              <strong>技術と営業の説明が一致している</strong><br>ブランドの解釈が担当者ごとに異なっていない
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     S10: 最終メッセージ
+     ===================================================== -->
+<section class="final" id="section-10-final" data-section="9">
+  <div class="final__bg-glow" aria-hidden="true"></div>
+  <div class="final__bg-grid" aria-hidden="true"></div>
+
+  <div class="final__inner">
+    <div class="final__kicker will-animate anim--up">
+      Final Message
+    </div>
+    <h2 class="final__headline will-animate anim--blur-scale anim-d1">
+      ブランドを
+      <em>定義</em>
+      する展示会へ
+    </h2>
+    <p class="final__body will-animate anim--up anim-d2">
+      本展示会は、プロダクトコンセプトを伝える場である。<br>
+      受注はその結果として生まれる。<br>
+      全員が同じ言葉を持ち、同じコンセプトを体現して臨む。
+    </p>
+
+    <div class="final__taglines will-animate anim--scale anim-d3">
+      <div class="final__tagline">
+        脱・固定業務
+        <span class="final__tagline-sub">Not "脱 Excel" — 構造の変革</span>
+      </div>
+      <div class="final__tagline">
+        変化耐性の獲得
+        <span class="final__tagline-sub">Not "IT 刷新" — 経営基盤の構築</span>
+      </div>
+      <div class="final__tagline">
+        経営リスクの低減
+        <span class="final__tagline-sub">Not "ツール導入" — 組織の持続可能性</span>
+      </div>
+    </div>
+
+    <div class="final__date will-animate anim--scale anim-d4">
+      製造業DX展（名古屋） — ポートメッセなごや
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+<footer class="site-footer">
+  <div class="site-footer__text">
+    dbSheet — 展示会作戦企画書 — Confidential
+  </div>
+</footer>
+
+<script>
+(function() {
+  'use strict';
+
+  /* ---- Intersection Observer for scroll reveals ---- */
+  var sections = document.querySelectorAll('[data-section]');
+  var dots = document.querySelectorAll('.progress__dot');
+  var animItems = document.querySelectorAll('.will-animate');
+
+  // Animate items on scroll
+  var itemObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.style.willChange = 'transform, opacity';
+        entry.target.classList.add('is-visible');
+        var el = entry.target;
+        setTimeout(function() {
+          el.style.willChange = 'auto';
+        }, 1200);
+        itemObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+  animItems.forEach(function(el) {
+    itemObserver.observe(el);
+  });
+
+  // Section progress indicator
+  var sectionObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var idx = parseInt(entry.target.dataset.section, 10);
+        dots.forEach(function(d) { d.classList.remove('progress__dot--active'); });
+        if (dots[idx]) dots[idx].classList.add('progress__dot--active');
+      }
+    });
+  }, { threshold: 0.4 });
+
+  sections.forEach(function(s) { sectionObserver.observe(s); });
+
+  // Dot click navigation
+  dots.forEach(function(dot) {
+    dot.addEventListener('click', function() {
+      var idx = parseInt(dot.dataset.section, 10);
+      var target = document.querySelector('[data-section="' + idx + '"]');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // passive scroll listener (performance)
+  document.addEventListener('scroll', function() {}, { passive: true });
+
+  // prefers-reduced-motion check
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (prefersReduced.matches) {
+    animItems.forEach(function(el) {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    });
+  }
+
+})();
+</script>
+</body>
+</html>
