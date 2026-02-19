@@ -1627,6 +1627,19 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
   font-family: var(--font-mono);
 }
 
+/* Smartphone: make final taglines equal width */
+@media (max-width: 767px) {
+  .final__taglines {
+    flex-direction: column;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    gap: 12px;
+  }
+  .final__tagline {
+    width: 100%;
+  }
+}
+
 /* =====================================================
    HOVER INTERACTIONS — ONLY POINTER DEVICES
    ===================================================== */
@@ -2106,8 +2119,7 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
 
     <div class="competitor__bottom will-animate anim--scale anim-d6">
       <p><strong>AI は整った業務を速くするが<span class="pc-only">、</span><br class="sp-br">整っていない業務は苦手。</strong></p>
-      <p>構造化されていない業務に AI を活用しても、期待する出力は出ない。<br>
-      dbSheet は、AI 活用に必要不可欠な前提条件を整える基盤として機能する。</p>
+      <p>構造化されていない業務に AI を活用しても<span class="pc-only">、</span><br class="sp-br">期待する出力は出ない。<br class="sp-br">AI 活用に必要不可欠な前提条件を整える<br class="sp-br">基盤として機能するdbSheet。</p>
     </div>
   </div>
 </section>
@@ -2429,9 +2441,8 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
       名古屋展示会へ
     </h2>
     <p class="final__body will-animate anim--up anim-d2">
-      本展示会は、dbSheetのコンセプトを伝える場である。<br>
-      受注はその結果として生まれる。<br>
-      全員が同じ言葉を持ち、同じコンセプトを体現して臨む。
+      一貫したdbSheetのコンセプトを伝える。<br>
+      受注はその結果として生まれる。
     </p>
 
     <div class="final__taglines will-animate anim--scale anim-d3">
