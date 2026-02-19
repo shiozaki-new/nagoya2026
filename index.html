@@ -1213,7 +1213,7 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
   flex-shrink: 0;
   margin-top: 60px;
 }
-@media (max-width: 1023px) {
+@media (min-width: 768px) and (max-width: 1023px) {
   /* Tablet-only: keep vertical connector when stacked */
   .strategy__connector { transform: rotate(90deg); margin: 0 auto; padding: 8px 0; }
 }
@@ -1977,8 +1977,8 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
       </p>
 
       <div class="nonduplicate__declaration will-animate anim--scale anim-d4">
-        dbSheet の競合は、<br>
-        <strong class="text-near-white2">放置された Excel と、</strong><br>
+        dbSheet の競合は<br>
+        <strong class="text-near-white2">放置された Excel と</strong><br>
         <strong class="text-near-white2">固定業務構造</strong><span class="nowrap">である。</span>
       </div>
     </div>
@@ -2074,8 +2074,8 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
         <div class="competitor__card-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M2 6C2 4.9 2.9 4 4 4H8L10 6H18C19.1 6 20 6.9 20 8V17C20 18.1 19.1 19 18 19H4C2.9 19 2 18.1 2 17V6Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 12H14M8 15H11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
         <div class="competitor__card-title">放置された Excel</div>
         <div class="competitor__card-desc">
-          誰も管理していない Excel ファイルが組織に散在し<br>
-          データが分断される。真実のデータが存在しなくなる。
+          Excel ファイルが組織に散在しデータが分断される。<br>
+          真実のデータが存在しなくなる。
         </div>
       </div>
       <div class="competitor__card will-animate anim--up anim-d3">
