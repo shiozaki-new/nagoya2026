@@ -1699,6 +1699,9 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
 .success__body-inverse strong { color: var(--color-text-inverse); font-weight: 700; }
 /* utility */
 .nowrap { white-space: nowrap; }
+/* show only on desktop/tablet */
+.pc-only { display: inline; }
+@media (max-width: 767px) { .pc-only { display: none; } }
 /* legacy funnel classes removed */
 .market__h2 {
   font-size: var(--text-h1);
@@ -2095,7 +2098,7 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
     </div>
 
     <div class="competitor__bottom will-animate anim--scale anim-d6">
-      <p><strong>AI は整った業務を速くするが<br>整っていない業務は苦手。</strong></p>
+      <p><strong>AI は整った業務を速くするが<span class="pc-only">、</span><br class="sp-br">整っていない業務は苦手。</strong></p>
       <p>業務が構造化されていない組織に AI を活用しても、期待する成果は得られない。<br>
       dbSheet は、AI 活用に必要不可欠な前提条件を整える基盤として機能する。</p>
     </div>
