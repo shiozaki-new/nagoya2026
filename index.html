@@ -4,21 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="format-detection" content="telephone=no">
-<title>製造業DX展 名古屋 — dbSheet 展示会作戦企画書</title>
+<title>製造業DX展 名古屋 — dbSheet 名古屋展示会企画書</title>
 
 <!-- Open Graph / Twitter (moved early for link scrapers like Teams) -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://shiozaki-new.github.io/nagoya2026kikaku/">
 <meta property="og:site_name" content="dbSheet | 株式会社NEWCOM">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:title" content="製造業DX展 名古屋 — dbSheet 展示会作戦企画書">
+<meta property="og:title" content="製造業DX展 名古屋 — dbSheet 名古屋展示会企画書">
 <meta property="og:description" content="dbSheetの思想と展示会作戦をまとめた企画書。">
-<meta property="og:image" content="https://shiozaki-new.github.io/nagoya2026kikaku/ogp.png">
+<!-- Use existing image on the site to ensure preview shows immediately -->
+<meta property="og:image" content="https://shiozaki-new.github.io/nagoya2026kikaku/ogp_1200.jpg?v=20260218">
+<meta property="og:image:secure_url" content="https://shiozaki-new.github.io/nagoya2026kikaku/ogp_1200.jpg?v=20260218">
+<meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="dbSheet — 名古屋展示会企画書">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="製造業DX展 名古屋 — dbSheet 展示会作戦企画書">
+<meta name="twitter:title" content="製造業DX展 名古屋 — dbSheet 名古屋展示会企画書">
 <meta name="twitter:description" content="dbSheetの思想と展示会作戦をまとめた企画書。">
+<meta name="twitter:image" content="https://shiozaki-new.github.io/nagoya2026kikaku/ogp_1200.jpg?v=20260218">
 
 <style>
 /* =====================================================
@@ -458,7 +463,7 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
   font-size: 0.58em;
   letter-spacing: -0.01em;
   color: var(--color-text-inverse-sub);
-  margin-top: 8px;
+  margin-top: 16px; /* add clear blank line under title */
 }
 .hero__accent {
   color: var(--color-accent);
@@ -1013,6 +1018,8 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
 @media (min-width: 1440px) { .competitor__bottom { padding: 32px 48px; } }
 @media (min-width: 1920px) { .competitor__bottom { padding: 36px 56px; } }
 .competitor__bottom strong { color: var(--color-primary); font-weight: 700; }
+/* Paragraph spacing inside bottom note */
+.competitor__bottom p + p { margin-top: 12px; }
 
 /* =====================================================
    S6.5: Excel × AI (light)
@@ -1073,6 +1080,31 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
 @media (min-width: 1920px) { .strategy__steps { max-width: 1600px; } }
 @media (max-width: 1023px) {
   .strategy__steps { flex-direction: column; max-width: 700px; }
+}
+.hero__stats { /* keep three metrics readable across sizes */ }
+@media (max-width: 767px) {
+  /* Keep all three hero stats on a single row on smartphones */
+  .hero__stats { flex-wrap: nowrap; justify-content: space-between; gap: var(--space-sm); }
+  .hero__stat { min-width: 0; }
+  .hero__stat-value { font-size: 28px; }
+}
+
+/* Mobile-first: horizontal scroll for strategy steps */
+@media (max-width: 767px) {
+  .strategy__steps {
+    flex-direction: row;
+    max-width: none;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 8px;
+  }
+  .strategy__step {
+    flex: 0 0 84%;
+    min-width: 84%;
+    scroll-snap-align: start;
+  }
+  .strategy__connector { display: none; }
 }
 .strategy__step {
   flex: 1;
@@ -1742,7 +1774,7 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
 <!-- FIXED HEADER -->
 <header class="header frosted">
   <div class="header__logo">db<span>Sheet</span></div>
-  <div class="header__badge">展示会作戦企画書</div>
+  <div class="header__badge">名古屋展示会企画書</div>
 </header>
 
 <!-- PROGRESS INDICATOR -->
@@ -1775,12 +1807,12 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
     </div>
 
     <h1 class="hero__headline anim--blur-scale anim-d1">
-      展示会作戦
-      <span class="hero__headline-sub">dbSheet のコンセプトを定義する場</span>
+      名古屋展示会企画
+      <span class="hero__headline-sub">dbSheet のコンセプトを定義する</span>
     </h1>
 
     <p class="hero__body anim--up anim-d3">
-      本展示会はリード獲得イベントではない。<br><br class="sp-br">
+      名古屋展示会はリード獲得イベントではない。<br>
       ブランドコンセプトを定義することが目的である。
     </p>
 
@@ -1824,7 +1856,7 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
         </div>
         <div class="essence__divider will-animate anim--up anim-d2"></div>
         <p class="essence__body will-animate anim--up anim-d3">
-          本展示会は「プロダクトコンセプトを定義する場」である。<br><br>
+          本展示会は「dbSheetのコンセプト」を定義する。<br><br>
           受注は結果であり、目的ではない。<br>
           最大の目的は<strong class="text-near-white">ブランド理解の統一</strong>にある。
         </p>
@@ -1835,25 +1867,26 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
           <div class="essence__card-label">External Goal</div>
           <div class="essence__card-title">展示会起点で 2件受注</div>
           <div class="essence__card-desc">
-            想定リード100名から商談化し、最終的に2件の受注を目指す。
-            展示会を単発施策ではなく継続的な関係構築の起点とする。
+            体験デモ100名から商談化し、2件の受注を目指す。<br>
+            単発施策ではなく継続的な関係構築の起点とする。
           </div>
         </div>
         <div class="essence__card will-animate anim--left anim-d3">
           <div class="essence__card-label">Internal Goal — 最大チャレンジ</div>
           <div class="essence__card-title">ブランドコンセプトの統一</div>
           <div class="essence__card-desc">
-            プロダクトブランドコンセプトを、全スタッフが
-            「同じ言葉」で説明できる状態を作る。<br>
-            デモ機でブランドコンセプトまで説明できる状態を作る。
+            dbSheetのコンセプトを、全スタッフが<br>
+            同じ言葉で説明できる状態を作る。<br>
+            体験型デモでブランドコンセプトを伝える。
           </div>
         </div>
         <div class="essence__card will-animate anim--left anim-d4">
           <div class="essence__card-label">Priority Note</div>
-          <div class="essence__card-title">特に初回案内を統一する</div>
+          <div class="essence__card-title">初回説明を統一する</div>
           <div class="essence__card-desc">
-            現状：社員によって案内がバラバラ。<br>
-            本企画書は展示会関係者に共有される。
+            現状：社員ごとに説明ポイントが異なるため<br>
+            担当者が変わると話の軸がずれる。<br>
+            初回説明は、dbSheetの概要と全体構造に限定する。
           </div>
         </div>
       </div>
@@ -1935,7 +1968,8 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
 
       <div class="nonduplicate__declaration will-animate anim--scale anim-d4">
         dbSheet の競合は、<br>
-        <strong class="text-near-white2">放置された Excel と、変えられない業務構造</strong><span class="nowrap">である。</span>
+        <strong class="text-near-white2">放置された Excel と、</strong><br>
+        <strong class="text-near-white2">変えられない業務構造</strong><span class="nowrap">である。</span>
       </div>
     </div>
   </div>
@@ -2000,7 +2034,8 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
     </div>
 
     <p class="market__position-note will-animate anim--scale anim-d6">
-      dbSheet は ① でも ② でもない。③ 現場層と ② SaaS層の間に存在する、<strong>唯一の独立した基盤</strong>である。
+      dbSheet は ③ 現場層と ② SaaS層の間に存在する<br>
+      <strong>唯一の独立した基盤</strong>である。
     </p>
   </div>
 </section>
@@ -2019,7 +2054,7 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
         本当の競合は何か
       </h2>
       <p class="competitor__sub will-animate anim--right anim-d2">
-        SAP でも Salesforce でも kintone でもない。
+        SAP でも Salesforce でも kintone でもない。<br>
         私たちが戦うべき相手は組織の内側にある。
       </p>
     </div>
@@ -2029,7 +2064,7 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
         <div class="competitor__card-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M2 6C2 4.9 2.9 4 4 4H8L10 6H18C19.1 6 20 6.9 20 8V17C20 18.1 19.1 19 18 19H4C2.9 19 2 18.1 2 17V6Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 12H14M8 15H11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
         <div class="competitor__card-title">放置された Excel</div>
         <div class="competitor__card-desc">
-          誰も管理していない Excel ファイルが組織に散在し、
+          誰も管理していない Excel ファイルが組織に散在し<br>
           データが分断される。真実のデータが存在しなくなる。
         </div>
       </div>
@@ -2053,16 +2088,16 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
         <div class="competitor__card-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><rect x="6" y="6" width="10" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M9 6V4M13 6V4M9 18V16M13 18V16M6 9H4M6 13H4M16 9H18M16 13H18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M9 10H13M9 13H11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
         <div class="competitor__card-title">AI を活かせない状態</div>
         <div class="competitor__card-desc">
-          AI を導入しても、整理されていない業務に当てても成果は出ない。
-          AI は整った業務を速くするが、整えることはしない。
+          整理されていない業務にAIを活用しても成果は出ない。
+          AI は整った業務は得意だが、整理されてない業務は苦手。
         </div>
       </div>
     </div>
 
     <div class="competitor__bottom will-animate anim--scale anim-d6">
-      <strong>AI は整った業務を速くするが、整っていない業務は整えない。</strong><br>
-      業務が構造化されていない組織に AI を導入しても、期待する成果は得られない。
-      dbSheet は、AI 活用に必要不可欠な前提条件を整える基盤として機能する。
+      <p><strong>AI は整った業務を速くするが<br>整っていない業務は苦手。</strong></p>
+      <p>業務が構造化されていない組織に AI を活用しても、期待する成果は得られない。<br>
+      dbSheet は、AI 活用に必要不可欠な前提条件を整える基盤として機能する。</p>
     </div>
   </div>
 </section>
@@ -2141,10 +2176,10 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
         <div class="strategy__step-title">クリック体験デモ</div>
         <div class="strategy__step-goal">目的</div>
         <ul class="strategy__step-points">
-          <li>言語説明ではなく「構造の違い」を体感させる</li>
-          <li>来場者に操作させ、思考停止を防ぐ</li>
-          <li>Excel 単体との構造差を直感理解させる</li>
-          <li>営業説明の前に前提認識を揃える</li>
+          <li>構造の違いを体感してもらう</li>
+          <li>来場者に体験してもらう</li>
+          <li>Excel 単体との構造差を理解する</li>
+          <li>概要と全体構造のみ説明する。</li>
         </ul>
         <div class="strategy__step-role">担当：<span>展示会スタッフ</span></div>
       </div>
@@ -2179,8 +2214,8 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
         <div class="strategy__step-title">茶室商談</div>
         <div class="strategy__step-goal">目的</div>
         <ul class="strategy__step-points">
-          <li>構造説明から経営判断へ移行させる</li>
-          <li>「価格の議論」ではなく「構造投資の議論」へ</li>
+          <li>より具体的な商品説明</li>
+          <li>価格ではなく構造投資の議論</li>
           <li>ブランドコンセプトの言語化確認</li>
           <li>意思決定層との本気度確認</li>
         </ul>
@@ -2190,15 +2225,7 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
 
     <div class="strategy__funnel will-animate anim--scale anim-d5">
       <div class="funnel__heading">展示会ファネル想定値</div>
-      <div class="funnel__rows">
-        <div class="funnel__row">
-          <div class="funnel__row-label">リード</div>
-          <div class="funnel__row-track">
-            <div class="funnel__row-bar funnel__row-bar--100">
-              <span class="funnel__row-num">100</span>
-            </div>
-          </div>
-        </div>
+    <div class="funnel__rows">
         <div class="funnel__row">
           <div class="funnel__row-label">クリック体験</div>
           <div class="funnel__row-track">
@@ -2259,7 +2286,8 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
         役割分担と体制
       </h2>
       <p class="roles__sub will-animate anim--right anim-d2">
-        全員が設計意図を理解した上で動くこと。役割の曖昧化は全体の品質劣化に直結する。
+        全員が設計意図を理解した上で動くこと。<br>
+        役割の曖昧化は全体の品質劣化に直結する。
       </p>
     </div>
 
@@ -2267,32 +2295,32 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
       <div class="roles__card roles__card--internal will-animate anim--right anim-d2">
         <div class="roles__card-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="10" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="10" r="1.5" fill="currentColor"/></svg></div>
         <div class="roles__card-title">ブース責任者</div>
-        <div class="roles__card-scope">全体運営・導線管理。展示会全体の品質を保証する最終責任者。</div>
+        <div class="roles__card-scope">全体運営・導線管理。展示会全体の品質を保証する。</div>
       </div>
       <div class="roles__card roles__card--internal will-animate anim--scale anim-d3">
         <div class="roles__card-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M13 7L11.2 11.2L7 13L8.8 8.8L13 7Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="10" cy="10" r="1" fill="currentColor"/></svg></div>
         <div class="roles__card-title">企画責任者</div>
-        <div class="roles__card-scope">作戦設計・統一メッセージ管理。ブランドコンセプトの一貫性を担保する。</div>
+        <div class="roles__card-scope">設計からブランドコンセプトの一貫性を担保する。</div>
       </div>
       <div class="roles__card will-animate anim--right anim-d4">
         <div class="roles__card-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="3" y="4" width="14" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M1 15.5H19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M7.5 15.5L8.5 17.5H11.5L12.5 15.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
         <div class="roles__card-title">技術デモ担当</div>
-        <div class="roles__card-scope">クリック体験デモ・開発版デモ実演。技術的信頼の担保と実装可能性の提示。</div>
+        <div class="roles__card-scope">開発版デモ実演。技術的信頼の担保と課題解決の提示。</div>
       </div>
       <div class="roles__card will-animate anim--scale anim-d5">
         <div class="roles__card-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 15L7.5 9.5L11.5 12.5L17 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 18H18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
         <div class="roles__card-title">営業部</div>
-        <div class="roles__card-scope">商談化・フォロー。展示会後の継続接触と受注推進の主担当。</div>
+        <div class="roles__card-scope">商談化。受注推進の主担当。</div>
       </div>
       <div class="roles__card will-animate anim--right anim-d6">
         <div class="roles__card-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="7" cy="6" r="3" stroke="currentColor" stroke-width="1.5"/><circle cx="14" cy="7" r="2.5" stroke="currentColor" stroke-width="1.5"/><path d="M1.5 18C1.5 15 4 12.5 7 12.5C10 12.5 12.5 15 12.5 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M12.5 14.5C13.2 13.5 14.2 12.5 15.5 12.5C17.5 12.5 19 14 19 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
         <div class="roles__card-title">展示会スタッフ</div>
-        <div class="roles__card-scope">誘導・初期対応。来場者をブースに引き込み、クリックデモへ誘導する。</div>
+        <div class="roles__card-scope">概要と全体構造のみ説明。体験デモ誘導。</div>
       </div>
       <div class="roles__card will-animate anim--scale anim-d7">
         <div class="roles__card-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M14.5 3C16 3.8 17 5.3 17 7C17 9.2 15.2 11 13 11C12.5 11 12 10.9 11.5 10.7L5.5 17C5 17.5 4 17.5 3.5 17L3 16.5C2.5 16 2.5 15 3 14.5L9 8.5C8.8 8 8.7 7.5 8.7 7C8.7 4.8 10.5 3 12.7 3C13.3 3 13.9 3.2 14.5 3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
         <div class="roles__card-title">展示会業者（外部）</div>
-        <div class="roles__card-scope">設営・物理環境整備。ブースの構造・見た目の品質を担保する。</div>
+        <div class="roles__card-scope">設営・物理環境整備。</div>
       </div>
     </div>
 
@@ -2396,11 +2424,11 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
     </div>
     <h2 class="final__headline will-animate anim--blur-scale anim-d1">
       ブランドを
-      <em>定義</em>
-      する展示会へ
+      <em>定義する</em>
+      名古屋展示会へ
     </h2>
     <p class="final__body will-animate anim--up anim-d2">
-      本展示会は、プロダクトコンセプトを伝える場である。<br>
+      本展示会は、dbSheetのコンセプトを伝える場である。<br>
       受注はその結果として生まれる。<br>
       全員が同じ言葉を持ち、同じコンセプトを体現して臨む。
     </p>
@@ -2431,7 +2459,7 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
      ===================================================== -->
 <footer class="site-footer">
   <div class="site-footer__text">
-    dbSheet — 展示会作戦企画書 — Confidential
+    dbSheet — 名古屋展示会企画書 — Confidential
   </div>
 </footer>
 
