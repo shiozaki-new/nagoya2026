@@ -1104,7 +1104,13 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
     min-width: 84%;
     scroll-snap-align: start;
   }
-  .strategy__connector { display: none; }
+  /* Smartphone: show right arrow between cards */
+  .strategy__connector {
+    display: inline-flex;
+    transform: none;
+    margin: 0 8px;
+    padding: 0;
+  }
 }
 .strategy__step {
   flex: 1;
@@ -1208,6 +1214,7 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
   margin-top: 60px;
 }
 @media (max-width: 1023px) {
+  /* Tablet-only: keep vertical connector when stacked */
   .strategy__connector { transform: rotate(90deg); margin: 0 auto; padding: 8px 0; }
 }
 /* Funnel - proportional bar chart */
@@ -1806,7 +1813,7 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
     <div class="hero__meta anim--up">
       <span class="hero__tag">社内発表資料</span>
       <span class="hero__tag hero__tag--secondary">製造業DX展 名古屋</span>
-      <span class="hero__eyebrow">Confidential — Internal Use Only</span>
+      
     </div>
 
     <h1 class="hero__headline anim--blur-scale anim-d1">
@@ -1815,8 +1822,8 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
     </h1>
 
     <p class="hero__body anim--up anim-d3">
-      名古屋展示会はリード獲得イベントではない。<br>
-      ブランドコンセプトを定義することが目的である。
+      名古屋展示会はリード獲得のイベントではない。<br>
+      ブランドコンセプトを定義する展示会である。
     </p>
 
     <div class="hero__stats">
@@ -1859,7 +1866,7 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
         </div>
         <div class="essence__divider will-animate anim--up anim-d2"></div>
         <p class="essence__body will-animate anim--up anim-d3">
-          本展示会は「dbSheetのコンセプト」を定義する。<br><br>
+          
           受注は結果であり、目的ではない。<br>
           最大の目的は<strong class="text-near-white">ブランド理解の統一</strong>にある。
         </p>
@@ -1870,8 +1877,8 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
           <div class="essence__card-label">External Goal</div>
           <div class="essence__card-title">展示会起点で 2件受注</div>
           <div class="essence__card-desc">
-            体験デモ100名から商談化し、2件の受注を目指す。<br>
-            単発施策ではなく継続的な関係構築の起点とする。
+            体験デモ100名から受注２件を目指す。<br>
+            継続的な関係構築の起点とする。
           </div>
         </div>
         <div class="essence__card will-animate anim--left anim-d3">
@@ -1889,7 +1896,7 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
           <div class="essence__card-desc">
             現状：社員ごとに説明ポイントが異なるため<br>
             担当者が変わると話の軸がずれる。<br>
-            初回説明は、dbSheetの概要と全体構造に限定する。
+            初回説明は、概要と全体構造に限定する。
           </div>
         </div>
       </div>
@@ -1972,7 +1979,7 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
       <div class="nonduplicate__declaration will-animate anim--scale anim-d4">
         dbSheet の競合は、<br>
         <strong class="text-near-white2">放置された Excel と、</strong><br>
-        <strong class="text-near-white2">変えられない業務構造</strong><span class="nowrap">である。</span>
+        <strong class="text-near-white2">固定業務構造</strong><span class="nowrap">である。</span>
       </div>
     </div>
   </div>
@@ -1989,7 +1996,7 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
         Market Structure
       </div>
       <h2 class="market__h2 will-animate anim--left anim-d1">
-        業界構造と dbSheet の<span class="nowrap">立ち位置</span>
+        dbSheet の<span class="nowrap">立ち位置</span>
       </h2>
     </div>
 
@@ -2081,7 +2088,7 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
       </div>
       <div class="competitor__card will-animate anim--scale anim-d4">
         <div class="competitor__card-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><rect x="4" y="10" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 10V7C8 4.8 9.8 3 12 3C14.2 3 16 4.8 16 7V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="15" r="1.5" fill="currentColor"/></svg></div>
-        <div class="competitor__card-title">変えられない業務構造</div>
+        <div class="competitor__card-title">固定業務構造</div>
         <div class="competitor__card-desc">
           長年の慣習により業務が固定化し、改善を試みても
           仕組みに戻らない。変化に対応できない組織が生まれる。
@@ -2091,8 +2098,8 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
         <div class="competitor__card-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><rect x="6" y="6" width="10" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M9 6V4M13 6V4M9 18V16M13 18V16M6 9H4M6 13H4M16 9H18M16 13H18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M9 10H13M9 13H11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
         <div class="competitor__card-title">AI を活かせない状態</div>
         <div class="competitor__card-desc">
-          整理されていない業務にAIを活用しても成果は出ない。
-          AI は整った業務は得意だが、整理されてない業務は苦手。
+          AI は整った業務は得意だが<br>
+          整理されてない業務は苦手。
         </div>
       </div>
     </div>
@@ -2327,16 +2334,7 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
       </div>
     </div>
 
-    <div class="roles__share will-animate anim--up anim-d8">
-      <div class="roles__share-title">本企画書の共有対象</div>
-      <div class="roles__share-targets">
-        <span class="roles__share-tag">社長</span>
-        <span class="roles__share-tag">経営層</span>
-        <span class="roles__share-tag">営業部</span>
-        <span class="roles__share-tag">展示会スタッフ</span>
-        <span class="roles__share-tag">展示会業者（外部）</span>
-      </div>
-    </div>
+    
   </div>
 </section>
 
