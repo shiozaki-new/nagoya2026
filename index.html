@@ -1645,6 +1645,25 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
   .market__layer-badge { display: none; }
 }
 
+/* -----------------------------------------------------
+   Funnel (mobile): precision + legibility
+   - Strict percentages (100/40/20/4/2)
+   - Remove min-widths that skew proportions
+   - Show tiny values (4, 2) just outside the bar
+   ----------------------------------------------------- */
+@media (max-width: 767px) {
+  .funnel__row-track { overflow: visible; }
+  .funnel__row-bar { min-width: 0; padding: 0 8px; }
+  .funnel__row-bar--4 { width: 4%; min-width: 0; }
+  .funnel__row-bar--2 { width: 2%; min-width: 0; }
+  .funnel__row-bar--4 .funnel__row-num,
+  .funnel__row-bar--2 .funnel__row-num {
+    position: relative;
+    left: calc(100% + 8px);
+    color: rgba(15,38,64,0.80);
+  }
+}
+
 /* =====================================================
    HOVER INTERACTIONS — ONLY POINTER DEVICES
    ===================================================== */
@@ -1997,7 +2016,7 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
       <div class="nonduplicate__declaration will-animate anim--scale anim-d4">
         dbSheet の競合は<br>
         <strong class="text-near-white2">放置された Excel と</strong><br>
-        <strong class="text-near-white2">固定業務構造</strong><span class="nowrap">である。</span>
+        <strong class="text-near-white2">固定業務構造</strong><span class="nowrap">である</span>
       </div>
     </div>
   </div>
@@ -2043,7 +2062,7 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
         <div class="market__layer-num market__layer-num--star">★</div>
         <div class="market__layer-icon market__layer-icon--dbsheet"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M12 2L4 11H10L8 18L16 9H10L12 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
         <div class="market__layer-content">
-          <div class="market__layer-title">dbSheet の領域</div>
+          <div class="market__layer-title">dbSheet領域</div>
           <div class="market__layer-names market__layer-names--primary">Excelの柔軟性 × 組織への定着 × 変化耐性 — 固定しない・重くしない</div>
         </div>
         <div class="market__layer-badge">ここで戦う</div>
@@ -2056,7 +2075,7 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
         <div class="market__layer-icon market__layer-icon--excel"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M2 8H18M2 12H18M8 3V17" stroke="currentColor" stroke-width="1.5"/></svg></div>
         <div class="market__layer-content">
           <div class="market__layer-title">現場 Excel 層</div>
-          <div class="market__layer-names">Excel / Access / 個人管理ファイル — 柔軟・速い・属人化・組織に残らない</div>
+          <div class="market__layer-names">Excel / Access / 個人管理— 柔軟・速い・属人化・組織に残らない</div>
         </div>
       </div>
     </div>
@@ -2124,7 +2143,7 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
 
     <div class="competitor__bottom will-animate anim--scale anim-d6">
       <p><strong>AI は整った業務を速くするが<span class="pc-only">、</span><br class="sp-br">整っていない業務は苦手。</strong></p>
-      <p>構造化されていない業務に AI を活用しても<span class="pc-only">、</span><br class="sp-br">期待する出力は出ない。<br class="sp-br">AI 活用に必要不可欠な前提条件を整える<br class="sp-br">基盤として機能するdbSheet。</p>
+      <p>構造化されていない業務に<br class="sp-br">AI を活用しても<span class="pc-only">、</span>期待する出力は出ない。<br class="sp-br">AI 活用に必要不可欠な前提条件を<br class="sp-br">整える基盤として機能するdbSheet。</p>
     </div>
   </div>
 </section>
