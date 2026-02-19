@@ -1640,6 +1640,11 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
   }
 }
 
+/* Smartphone: hide the 'ここで戦う' badge in market section */
+@media (max-width: 767px) {
+  .market__layer-badge { display: none; }
+}
+
 /* =====================================================
    HOVER INTERACTIONS — ONLY POINTER DEVICES
    ===================================================== */
@@ -2039,7 +2044,7 @@ body { background: var(--color-bg-dark); color: var(--color-text-inverse); overf
         <div class="market__layer-icon market__layer-icon--dbsheet"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M12 2L4 11H10L8 18L16 9H10L12 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
         <div class="market__layer-content">
           <div class="market__layer-title">dbSheet の領域</div>
-          <div class="market__layer-names market__layer-names--primary">Excelの柔軟性 × 組織への定着 × 変化耐性 — 固定しない・重くしない・属人化しない</div>
+          <div class="market__layer-names market__layer-names--primary">Excelの柔軟性 × 組織への定着 × 変化耐性 — 固定しない・重くしない</div>
         </div>
         <div class="market__layer-badge">ここで戦う</div>
       </div>
